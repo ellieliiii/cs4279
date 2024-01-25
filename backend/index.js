@@ -4,7 +4,7 @@ npm install mongodb --save
 */
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://studentmatch:6Oks6AZT7WOVxNkA@users.gzoz2yl.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://match:B4cdjwlh7tkR5qf1@match.otbtn6h.mongodb.net/?retryWrites=true&w=majority";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
