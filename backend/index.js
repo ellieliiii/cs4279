@@ -3,8 +3,10 @@ npm install mongodb@6.3
 npm install mongodb --save
 */
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://match:B4cdjwlh7tkR5qf1@match.otbtn6h.mongodb.net/?retryWrites=true&w=majority";
+import { uri } from './config.js';
+
+// MONGODB SETUP
+import { MongoClient, ServerApiVersion } from 'mongodb';
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -14,7 +16,6 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
-
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
@@ -28,5 +29,17 @@ async function run() {
   }
 }
 run().catch(console.dir);
+
+// BODY
+
+const db = client.db("match");
+const users = db.collection('users');
+const meUser = {
+    username: "Me",
+    password: "password",
+}
+const result = users.insertOne(meUser);
+
+await client.close();
 
 console.log("hello world")
