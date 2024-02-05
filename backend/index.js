@@ -19,7 +19,7 @@ const client = new MongoClient(uri, {
 
 // Database and collections being connected
 const db = client.db("match");
-const users = db.collection('users');
+const users = db.collection("users");
 
 async function connect() {
   try {
@@ -48,7 +48,6 @@ async function run() {
 }
 
 // FUNCTIONS
-
 async function addUser(user) {
   const email = {email: user.email};
   if (await users.findOne(email) == null) {
