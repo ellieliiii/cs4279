@@ -7,6 +7,24 @@
   min-height: 100vh;
 }
 
+.centeredContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.loginButton {
+  padding: 10px;
+  cursor: pointer;
+  font-size: medium;
+  border-radius: var(--border-radius);
+  background: #fef456;
+  border: 1px solid #fef456;
+}
+
 .description {
   display: inherit;
   justify-content: inherit;
