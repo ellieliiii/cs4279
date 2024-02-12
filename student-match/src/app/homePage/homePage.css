@@ -1,0 +1,125 @@
+/**
+ * Tabs
+ */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.name {
+  color: #325d79;
+  text-align: center;
+  font-weight: bold;
+  font-size: 200%;
+  padding: 0.5rem;
+}
+.tabs label {
+  order: 1;
+  display: block;
+  padding: 0.5rem 0.5rem;
+  margin-right: 0.2rem;
+  cursor: pointer;
+  /* background: #90caf9; */
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  border-top-left-radius: 10px; /* Rounded corners */
+  border-top-right-radius: 10px; /* Rounded corners */
+  width: 150px;
+  height: 40px;
+}
+.tabs .tab {
+  order: 99;
+  flex-grow: 1;
+  width: 100%;
+  display: none;
+  padding: 1rem;
+  /* background: #fff; */
+  min-height: 90vh;
+}
+.tabs input[type="radio"] {
+  display: none;
+}
+/* .tabs input[type="radio"]:checked + label {
+  background: #fff;
+} */
+.tabs input[type="radio"]:checked + label + .tab {
+  display: block;
+}
+
+/* Tab One */
+#tabone + label {
+  background: #869fb1; /* Unique background color for Tab One */
+}
+.tabs .tab:nth-of-type(1) {
+  background: #869fb1;
+}
+
+/* Tab Two */
+#tabtwo + label {
+  background: #f0c5e4; /* Unique background color for Tab Two */
+}
+.tabs .tab:nth-of-type(2) {
+  background: #f0c5e4;
+}
+
+/* Tab Three */
+#tabthree + label {
+  background: #ecd58c; /* Unique background color for Tab Three */
+}
+.tabs .tab:nth-of-type(3) {
+  background: #ecd58c;
+}
+
+/* Tab Four */
+#tabfour + label {
+  background: #bde7b6; /* Unique background color for Tab Four */
+}
+.tabs .tab:nth-of-type(4) {
+  background: #bde7b6;
+}
+
+/* Tab Five */
+#tabfive + label {
+  background: #9cdee0; /* Unique background color for Tab Five */
+}
+.tabs .tab:nth-of-type(5) {
+  background: #9cdee0;
+}
+/* Tab Six */
+#tabsix + label {
+  background: #eac3ff; /* Unique background color for Tab Six */
+}
+.tabs .tab:nth-of-type(6) {
+  background: #eac3ff;
+}
+
+@media (max-width: 45em) {
+  .tabs .tab,
+  .tabs label {
+    order: initial;
+  }
+  .tabs label {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 0.2rem;
+  }
+}
+
+/**
+   * Generic Styling
+  */
+body {
+  background: #eee;
+  min-height: 100vh;
+  box-sizing: border-box;
+  /* padding-top: 10vh; */
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  /* max-width: 60rem; */
+  max-width: 100%;
+  margin: 0 auto;
+  font-size: 112%;
+}
