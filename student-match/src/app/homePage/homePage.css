@@ -92,9 +92,10 @@
 }
 .tabs .tab:nth-of-type(6) {
   background: #eac3ff;
+  color: #7b35ad; /* Unique text color for Tab Six */
 }
 
-@media (max-width: 45em) {
+@media (max-width: 60em) {
   .tabs .tab,
   .tabs label {
     order: initial;
@@ -122,4 +123,6 @@ body {
   max-width: 100%;
   margin: 0 auto;
   font-size: 112%;
+  color: #fff;
+  text-align: center;
 }

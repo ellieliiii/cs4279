@@ -1,7 +1,18 @@
+"use client";
+
 import "./homePage.css";
 import Link from "next/link";
+import EditProfileForm from "./editProfileForm";
 
 export default function Home() {
+  const handleSubmit = (formData: {
+    name: string;
+    email: string;
+    phoneNumber: string;
+  }) => {
+    console.log(formData);
+    // Send form data to backend here
+  };
   return (
     <div>
       <div className="name">StudentMatch</div>
@@ -44,8 +55,13 @@ export default function Home() {
         <input type="radio" name="tabs" id="tabsix" />
         <label htmlFor="tabsix">Profile</label>
         <div className="tab">
-          <h1>Tab Six Content</h1>
-          <p>Tab Six</p>
+          <h1>Edit Profile</h1>
+          <EditProfileForm
+            name=""
+            email=""
+            phoneNumber=""
+            onSubmit={handleSubmit}
+          />
         </div>
       </div>
     </div>
