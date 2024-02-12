@@ -41,20 +41,52 @@ await connect().catch(console.dir);
 async function run() {
   const meUser = {
     username: "Me",
-    email: "me@me.me",
+    email: "meeee@me.me",
     password: "password",
   }
   await addUser(meUser);
+  await updateAllUsers();
 }
 
 // FUNCTIONS
+
+// when adding new fields to users, this will update users to be compatible with future updates
+async function updateAllUsers() {
+  const cursor = await users.find({}).toArray();
+  for (const doc of cursor) {
+    try {
+      if (!doc.hasOwnProperty("email") || !doc.hasOwnProperty("username")) {
+        console.log(`${doc} IS A MALFUNCTIONING ACCOUNT, PLEASE FIX THIS`);
+      } else {
+        if (!doc.hasOwnProperty("name")) {
+          console.log(`${doc.username} does not have a name.`);
+          const update = { $set: { name: "Not listed" } };
+          await users.updateOne({ _id: doc._id }, update);
+        }
+        if (!doc.hasOwnProperty("birthday")) {
+          console.log(`${doc.username} does not have a birthday.`);
+          const update = { $set: { birthday: "Not listed" } };
+          await users.updateOne({ _id: doc._id }, update);
+        }
+        if (!doc.hasOwnProperty("gender")) {
+          console.log(`${doc.username} does not have a gender.`);
+          const update = { $set: { gender: "Not listed" } };
+          await users.updateOne({ _id: doc._id }, update);
+        }
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+}
+
 async function addUser(user) {
   const email = {email: user.email};
   if (await users.findOne(email) == null) {
     await users.insertOne(user);
-    console.log("addUser: ${email} added successfully");
+    console.log(`addUser: ${email.email} added successfully`);
   }
-  else console.log("addUser: ${email} already exists");
+  else console.log(`addUser: ${email.email} already exists`);
 }
 
 console.log("hello world")
