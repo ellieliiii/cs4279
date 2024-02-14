@@ -4,15 +4,47 @@ import "./homePage.css";
 import Link from "next/link";
 import EditProfileForm from "./editProfileForm";
 
+function RoommatePreferencesForm() {
+  return (
+    <form>
+      <div>
+        <label htmlFor="budgetRange">Budget Range</label>
+        <input
+          type="text"
+          id="budgetRange"
+          name="budgetRange"
+          placeholder="Your budget range"
+        />
+      </div>
+      <div>
+        <label htmlFor="lifestylePreferences">Lifestyle Preferences</label>
+        <select id="lifestylePreferences" name="lifestylePreferences">
+          <option value="earlyBird">Early Bird</option>
+          <option value="nightOwl">Night Owl</option>
+          <option value="studious">Studious</option>
+          <option value="socialButterfly">Social Butterfly</option>
+        </select>
+      </div>
+      <div>
+        <label htmlFor="cleanliness">Cleanliness</label>
+        <select id="cleanliness" name="cleanliness">
+          <option value="tidy">Tidy</option>
+          <option value="average">Average</option>
+          <option value="messy">Messy</option>
+        </select>
+      </div>
+      {/* Add more fields as needed */}
+      <button type="submit">Submit Preferences</button>
+    </form>
+  );
+}
+
 export default function Home() {
-  const handleSubmit = (formData: {
-    name: string;
-    email: string;
-    phoneNumber: string;
-  }) => {
+  const handleSubmit = (formData) => {
     console.log(formData);
     // Send form data to backend here
   };
+
   return (
     <div>
       <div className="name">StudentMatch</div>
@@ -27,8 +59,8 @@ export default function Home() {
         <input type="radio" name="tabs" id="tabtwo" />
         <label htmlFor="tabtwo">Roommate</label>
         <div className="tab">
-          <h1>Tab Two Content</h1>
-          <p>Tab Two</p>
+          <h1>Find Your Roommate</h1>
+          <RoommatePreferencesForm />
         </div>
 
         <input type="radio" name="tabs" id="tabthree" />
@@ -56,12 +88,7 @@ export default function Home() {
         <label htmlFor="tabsix">Profile</label>
         <div className="tab">
           <h1>Edit Profile</h1>
-          <EditProfileForm
-            name=""
-            email=""
-            phoneNumber=""
-            onSubmit={handleSubmit}
-          />
+          <EditProfileForm onSubmit={handleSubmit} />
         </div>
       </div>
     </div>
