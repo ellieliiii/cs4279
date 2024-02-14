@@ -1,6 +1,7 @@
 "use client";
 
 import "./homePage.css";
+import ActivityHome from './activityHome';
 import Link from "next/link";
 import EditProfileForm from "./editProfileForm";
 
@@ -41,8 +42,8 @@ export default function Home() {
         <input type="radio" name="tabs" id="tabfour" />
         <label htmlFor="tabfour">Activity</label>
         <div className="tab">
-          <h1>Tab Four Content</h1>
-          <p>Tab Four</p>
+          <h1></h1>
+          <ActivityHome />
         </div>
 
         <input type="radio" name="tabs" id="tabfive" />
