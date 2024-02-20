@@ -1,22 +1,41 @@
 "use client";
 
 import "./homePage.css";
+import Head from "next/head";
 import Link from "next/link";
 import EditProfileForm from "./editProfileForm";
 
 function RoommatePreferencesForm() {
   return (
-    <form>
-      <div>
-        <label htmlFor="budgetRange">Budget Range</label>
+    <form className="form-container">
+      <div className="form-field-container">
+        <label htmlFor="fullName">Full Name</label>
         <input
           type="text"
-          id="budgetRange"
-          name="budgetRange"
-          placeholder="Your budget range"
+          id="fullName"
+          name="fullName"
+          placeholder="Your full name"
         />
       </div>
-      <div>
+      <div className="form-field-container">
+        <label htmlFor="vanderbiltEmail">Vanderbilt Email</label>
+        <input
+          type="email"
+          id="vanderbiltEmail"
+          name="vanderbiltEmail"
+          placeholder="Your Vanderbilt email"
+        />
+      </div>
+      <div className="form-field-container">
+        <label htmlFor="vunetId">VUnetID</label>
+        <input
+          type="text"
+          id="vunetId"
+          name="vunetId"
+          placeholder="Your VUnetID"
+        />
+      </div>
+      <div className="form-field-container">
         <label htmlFor="lifestylePreferences">Lifestyle Preferences</label>
         <select id="lifestylePreferences" name="lifestylePreferences">
           <option value="earlyBird">Early Bird</option>
@@ -25,13 +44,22 @@ function RoommatePreferencesForm() {
           <option value="socialButterfly">Social Butterfly</option>
         </select>
       </div>
-      <div>
+      <div className="form-field-container">
         <label htmlFor="cleanliness">Cleanliness</label>
         <select id="cleanliness" name="cleanliness">
           <option value="tidy">Tidy</option>
           <option value="average">Average</option>
           <option value="messy">Messy</option>
         </select>
+      </div>
+      <div className="form-field-container">
+        <label>How often do you have overnight guests over?</label>
+        <input type="range" min="1" max="100" defaultValue="50" />
+        <div className="range-labels">
+          <span>Everyday</span>
+          <span>Monthly</span>
+          <span>Never</span>
+        </div>
       </div>
       {/* Add more fields as needed */}
       <button type="submit">Submit Preferences</button>

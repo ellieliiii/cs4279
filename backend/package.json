@@ -10,7 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.1",
-    "mongodb": "6.3"
+    "mongodb": "6.3",
+    "next": "^14.1.0",
+    "node": "^21.6.1"
   },
   "type": "module",
   "keywords": [],
