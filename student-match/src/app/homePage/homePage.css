@@ -4,6 +4,51 @@
 .tabs {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+
+.activity_tab {
+  color: #325d79;
+  text-align: center;
+  font-weight: bold;
+  font-size: 200%;
+  padding: 0.5rem;
+}
+.activity_button {
+  background-color: #FDFAEC;
+  text-align: center;
+  font-weight: normal;
+  border: 2px solid #04AA6D;
+  border-radius: 8px;
+  font-size: 50%;
+  padding: 0.5rem;
+  color: green
+}
+.activity_header {
+  color: green
+}
+.activity_button:hover {
+  background-color: #04AA6D; /* Green */
+  color: #FDFAEC;
+}
+.form {
+  color: #325d79;
+  text-align: center;
+  font-weight: bold;
+  font-size: 70%;
+  padding: 0.5rem;
+}
+
+.activity_form input {
+  background-color: #FDFAEC;
+  text-align: center;
+  font-weight: normal;
+  border: 2px solid #04AA6D;
+  border-radius: 8px;
+  font-size: 50%;
+  padding: 0.5rem;
+  color: green
 }
 
 .name {
