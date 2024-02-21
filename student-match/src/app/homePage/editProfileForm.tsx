@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import "./editProfileForm.css";
+import * as f from '../../../../backend/index.js'
 
 interface EditProfileFormProps {
   name: string;
@@ -27,9 +28,13 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSubmit(formData);
+    try {
+      //await f.me(formData);
+    } catch (error) {
+      console.error('Error adding profile:', error);
+    }
   };
 
   return (

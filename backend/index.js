@@ -80,13 +80,17 @@ async function updateAllUsers() {
   }
 }
 
-async function addUser(user) {
+export async function addUser(user) {
   const email = {email: user.email};
   if (await users.findOne(email) == null) {
     await users.insertOne(user);
     console.log(`addUser: ${email.email} added successfully`);
   }
   else console.log(`addUser: ${email.email} already exists`);
+}
+
+export async function me(user) {
+  const email = {email: user.email};
 }
 
 console.log("hello world")
