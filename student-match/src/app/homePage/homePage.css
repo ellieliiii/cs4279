@@ -102,10 +102,10 @@
 
 /* Tab Two */
 #tabtwo + label {
-  background: #f0c5e4; /* Unique background color for Tab Two */
+  background: #fadaef; /* Unique background color for Tab Two */
 }
 .tabs .tab:nth-of-type(2) {
-  background: #f0c5e4;
+  background: #fadaef;
   color: #ba2c78; /* Unique text color for Tab Six */
 }
 
@@ -123,7 +123,7 @@
 
 
 .tabs .tab:nth-of-type(2) button[type="submit"] {
-  background-color: #f0c5e4; /* Lighter pink for the button background */
+  background-color: #fadaef; /* Lighter pink for the button background */
   border-color: #f3eff1; /* Dark pink border to match the theme */
 }
 
