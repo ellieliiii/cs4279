@@ -12,11 +12,13 @@ const ActivityList: React.FC<ActivityListProps> = ({ activities }) => {
             <h2>Activity List</h2>
             <ul>
                 {activities.map((activity) => (
-                    <li key={activity.id}>
-                        <strong>{activity.title}</strong>
-                        <p>{activity.description}</p>
-                        <p>Date: {activity.date}</p>
-                        <p>Organizer: {activity.organizer}</p>
+                    <li className='activity_list' key={activity.id}>
+                        <button className='activity_listing'>
+                            <strong className='activity_title'>{activity.title}</strong>
+                            <p className='activity_desc'>{activity.description}</p>
+                            <p className='activity_info'><i>Date: {activity.date}</i></p>
+                            <p className='activity_info'><i>Organizer: {activity.organizer}</i></p>
+                        </button>
                     </li>
                 ))}
             </ul>

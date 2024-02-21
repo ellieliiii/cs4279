@@ -26,7 +26,8 @@
   color: green
 }
 .activity_header {
-  color: green
+  color: #04AA6D;
+  text-align: center;
 }
 .activity_button:hover {
   background-color: #04AA6D; /* Green */
@@ -40,6 +41,26 @@
   padding: 0.5rem;
 }
 
+.title_break {
+  content: "";
+  margin: 2em;
+  display: block;
+  font-size: 10%;
+}
+.desc_break {
+  content: "";
+  margin: 2em;
+  display: block;
+  font-size: 30%;
+}
+
+.activity_form label {
+  text-align: left;
+  font-weight: normal;
+  font-size: 80%;
+  color: #04AA6D;
+}
+
 .activity_form input {
   background-color: #FDFAEC;
   text-align: center;
@@ -50,6 +71,69 @@
   padding: 0.5rem;
   color: green
 }
+
+.activity_form textarea {
+  background-color: #FDFAEC;
+  text-align: center;
+  font-weight: normal;
+  border: 2px solid #04AA6D;
+  border-radius: 8px;
+  font-size: 50%;
+  padding: 0.5rem;
+  color: green
+}
+
+.activity_title {
+  text-align: left;
+  font-weight: bold;
+  font-size: 200%;
+  padding: 0.5rem;
+  line-height: 150%;
+}
+
+.activity_list {
+  text-align: center;
+  font-weight: bold;
+  font-size: 80%;
+  padding: 0.5rem;
+  list-style-type: none;
+}
+.activity_desc {
+  text-align: center;
+  font-weight: normal;
+  font-size: 130%;
+  padding: 0.5rem;
+  line-height: 150%;
+}
+
+.activity_info {
+  text-align: center;
+  font-weight: lighter;
+  font-size: 80%;
+  padding: 0.5rem;
+  line-height: 10%;
+}
+
+input {
+  color-scheme: dark;
+}
+
+.activity_listing {
+  background-color: #FDFAEC;
+  text-align: center;
+  font-weight: normal;
+  border: 2px solid #04AA6D;
+  border-radius: 8px;
+  font-size: 50%;
+  padding: 0.5rem;
+  color: green;
+  width: 100%;
+}
+.activity_listing:hover {
+  background-color: #04AA6D; /* Green */
+  color: #FDFAEC;
+}
+
 
 .name {
   color: #325d79;

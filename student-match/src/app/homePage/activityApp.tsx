@@ -16,7 +16,7 @@ const App: React.FC = () => {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<ActivityHome />} />
+                <Route path="/homePage" element={<ActivityHome />} />
                 <Route path="/activityForm" element={<ActivityForm onSubmit={handleActivitySubmit}/>} />
             </Routes>
         </Router>
