@@ -31,11 +31,8 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      // Call addProfile function with formData
       //await f.me(formData);
-      // Optionally, you can perform other actions after adding the profile
     } catch (error) {
-      // Handle any errors that occur during the addProfile function call
       console.error('Error adding profile:', error);
     }
   };
