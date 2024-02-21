@@ -102,11 +102,37 @@
 
 /* Tab Two */
 #tabtwo + label {
-  background: #f0c5e4; /* Unique background color for Tab Two */
+  background: #fadaef; /* Unique background color for Tab Two */
 }
 .tabs .tab:nth-of-type(2) {
-  background: #f0c5e4;
+  background: #fadaef;
+  color: #ba2c78; /* Unique text color for Tab Six */
 }
+
+/* Specific styles for RoommatePreferencesForm in Tab 2 */
+.tabs .tab:nth-of-type(2) .form-field-container label,
+.tabs .tab:nth-of-type(2) .form-field-container input,
+.tabs .tab:nth-of-type(2) .form-field-container select,
+.tabs .tab:nth-of-type(2) button[type="submit"] {
+  color: #ba2c78; /* Adjusted to match the dark pink theme of Tab 2 */
+}
+/* Tab Two specific styles, ensuring Roboto is used */
+.tabs .tab:nth-of-type(2), .tabs .tab:nth-of-type(2) * {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.tabs .tab:nth-of-type(2) button[type="submit"] {
+  background-color: #fadaef; /* Lighter pink for the button background */
+  border-color: #f3eff1; /* Dark pink border to match the theme */
+}
+
+/* Ensure input and select fields have dark pink borders */
+.tabs .tab:nth-of-type(2) .form-field-container input,
+.tabs .tab:nth-of-type(2) .form-field-container select {
+  border: 1px solid #f5f5f5; /* Dark pink border */
+}
+
 
 /* Tab Three */
 #tabthree + label {
@@ -161,7 +187,7 @@ body {
   box-sizing: border-box;
   /* padding-top: 10vh; */
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
-    Helvetica, Arial, "Lucida Grande", sans-serif;
+    Helvetica, Arial, "Lucida Grande", sans-serif, 'Roboto', sans-serif;
   font-weight: 300;
   line-height: 1.5;
   /* max-width: 60rem; */
