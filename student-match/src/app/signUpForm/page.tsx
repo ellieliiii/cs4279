@@ -1,56 +1,39 @@
 "use client";
 
 import React, { useState } from "react";
-import "./editProfileForm.css";
-import * as f from '../../../../backend/index.js'
-interface EditProfileFormProps {
-  name: string;
-  email: string;
-  phoneNumber: string;
+import { useRouter } from "next/navigation";
+import "./signUpForm.css";
+
+interface SignUpFormProps {
   onSubmit: (data: {
     name: string;
     email: string;
     phoneNumber: string;
+    password: string;
   }) => void;
 }
 
-const EditProfileForm: React.FC<EditProfileFormProps> = ({
-  name,
-  email,
-  phoneNumber,
-  onSubmit,
-}) => {
-  const [formData, setFormData] = useState({ name, email, phoneNumber });
+const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    password: "",
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    console.log("hye");
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      const response = await fetch('/api/me', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      
-      if (!response.ok) {
-        throw new Error('Failed to update profile');
-      }
-      
-      // Handle success response if needed
-    } catch (error) {
-      console.error('Error updating profile:', error);
-    }
+    onSubmit(formData);
   };
 
   return (
-    <div className="form-container">
+    <div className="signup-form-container">
+      <h1>Create a Profile</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
@@ -85,10 +68,29 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({
             required
           />
         </div>
-        <button type="submit">Save</button>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
 };
 
-export default EditProfileForm;
+export default function SignUpFormPage() {
+  const router = useRouter();
+  const handleSubmit = (formData: { email: string; password: string }) => {
+    // Send data to backend here
+    console.log("Form submitted with data:", formData);
+    router.push("/homePage");
+  };
+  return <SignUpForm onSubmit={handleSubmit}></SignUpForm>;
+}
