@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import "./editProfileForm.css";
 import * as f from '../../../../backend/index.js'
-
 interface EditProfileFormProps {
   name: string;
   email: string;
@@ -29,11 +28,24 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    console.log("hye");
     e.preventDefault();
     try {
-      //await f.me(formData);
+      const response = await fetch('/api/me', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to update profile');
+      }
+      
+      // Handle success response if needed
     } catch (error) {
-      console.error('Error adding profile:', error);
+      console.error('Error updating profile:', error);
     }
   };
 
