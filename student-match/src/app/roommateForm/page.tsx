@@ -11,9 +11,13 @@ const RoommateForm: React.FC<RoommateFormProps> = ({ onSubmit }) => {
     fullName: "",
     vanderbiltEmail: "",
     vunetId: "",
+    pets: "",
     sleepSchedulePreferences: "earlyBird",
     cleanliness: "tidy",
     overnightGuestsFrequency: 50,
+    studyNoisePreference: 50, // New state for study noise preference
+    studyLocationPreference: 50, // New state for study location preference
+    friendsOverFrequency: 50, // New state for frequency of having friends over
   });
 
   const handleChange = (
@@ -99,7 +103,23 @@ const RoommateForm: React.FC<RoommateFormProps> = ({ onSubmit }) => {
         </div>
 
         <div className="roommate_form-field-container">
-          <label className="roommate_label">cleanliness</label>
+          <label htmlFor="pets" className="roommate_label">
+            Do you have any pets
+          </label>
+          <select
+            id="pets"
+            name="pets"
+            value={formData.pets}
+            onChange={handleChange}
+            className="roommate_select"
+          >
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <div className="roommate_form-field-container">
+          <label className="roommate_label">Cleanliness</label>
           <input
             type="range"
             min="1"
@@ -132,6 +152,69 @@ const RoommateForm: React.FC<RoommateFormProps> = ({ onSubmit }) => {
           <div className="roommate_range-labels">
             <span>Everyday</span>
             <span>Monthly</span>
+            <span>Never</span>
+          </div>
+        </div>
+
+        {/* New slider for study noise preference */}
+        <div className="roommate_form-field-container">
+          <label className="roommate_label">
+            Are you comfortable with background noise?
+          </label>
+          <input
+            type="range"
+            min="1"
+            max="100"
+            value={formData.studyNoisePreference}
+            onChange={handleChange}
+            name="studyNoisePreference"
+            className="roommate_input"
+          />
+          <div className="roommate_range-labels">
+            <span>Quiet</span>
+            <span>Moderate</span>
+            <span>Noisy</span>
+          </div>
+        </div>
+
+        {/* New slider for study location preference */}
+        <div className="roommate_form-field-container">
+          <label className="roommate_label">
+            Do you normally study in your room or elsewhere?
+          </label>
+          <input
+            type="range"
+            min="1"
+            max="100"
+            value={formData.studyLocationPreference}
+            onChange={handleChange}
+            name="studyLocationPreference"
+            className="roommate_input"
+          />
+          <div className="roommate_range-labels">
+            <span>In Room</span>
+            <span>Both</span>
+            <span>Elsewhere</span>
+          </div>
+        </div>
+
+        {/* New slider for how often friends are over */}
+        <div className="roommate_form-field-container">
+          <label className="roommate_label">
+            How often do you like to have friends over?
+          </label>
+          <input
+            type="range"
+            min="1"
+            max="100"
+            value={formData.friendsOverFrequency}
+            onChange={handleChange}
+            name="friendsOverFrequency"
+            className="roommate_input"
+          />
+          <div className="roommate_range-labels">
+            <span>Daily</span>
+            <span>Weekly</span>
             <span>Never</span>
           </div>
         </div>

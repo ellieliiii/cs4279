@@ -1,5 +1,6 @@
 h1 {
     text-align: center;
+    margin: 40px;
   }
   
   /* Adjust the body style as necessary */
@@ -25,6 +26,7 @@ h1 {
   .roommate_label {
     display: block;
     margin-bottom: 5px;
+    font-weight: 500;
   }
   
   .roommate_input[type="text"],
@@ -70,6 +72,8 @@ input[type="range"] {
     width: 100%; /* Slider width */
     height: 8px; /* Slider height */
     background: #FADADD; /* Light pink background */
+    margin-top: 15px;
+    margin-bottom: 10px;
     outline: none; /* Remove outline */
     opacity: 0.7; /* Make it slightly transparent */
     -webkit-transition: .2s; /* Transition for smooth effect */
