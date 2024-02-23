@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+
 import Link from "../../../node_modules/next/link";
 
 function RoommateHome() {
@@ -7,9 +8,7 @@ function RoommateHome() {
   return (
     <div>
       <h1>Find a Roommate</h1>
-      <Link legacyBehavior href="/roommateForm">
-        <a>Fill Out Roommate Preference Form</a>
-      </Link>
+      <Link href="/roommateForm">Fill Out Roommate Preference Form</Link>
     </div>
   );
 }
