@@ -3,6 +3,7 @@ import "./homePage.css";
 import ActivityList from './activityList';
 import ActivityForm from './activityForm/activityForm'
 import Activity from "@/app/homePage/types";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const ActivityHome: React.FC = () => {
     const [showActivityForm, setShowActivityForm] = useState(false);
@@ -11,6 +12,7 @@ const ActivityHome: React.FC = () => {
     const handleActivitySubmit = (activity: Activity) => {
         setActivities((prevActivities) => [...prevActivities, activity]);
         console.log('Activity submitted:', activity);
+        setShowActivityForm(false);
     };
     const handleButtonClick = () => {
         setShowActivityForm(true);
@@ -27,7 +29,9 @@ const ActivityHome: React.FC = () => {
             <div style={{ flex: 1 }}>
                 {/* Conditionally render ActivityList or ActivityForm based on state */}
                 {showActivityForm ? (
-                    <ActivityForm onSubmit={handleActivitySubmit}/>
+                    <Router>
+                        <ActivityForm onSubmit={handleActivitySubmit}/>
+                    </Router>
                 ) : (
                     <ActivityList activities={activities} />
                 )}

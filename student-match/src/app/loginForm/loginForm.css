@@ -1,0 +1,48 @@
+.login-form-container {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.login-form-container h1 {
+  text-align: center;
+}
+
+.login-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form-container label {
+  margin-bottom: 8px;
+  width: 200px; /* Added width to align labels */
+  text-align: left; /* Align labels to the left */
+  color: #325d79;
+}
+
+.login-form-container input[type="text"],
+.login-form-container input[type="email"],
+.login-form-container input[type="password"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: 3px solid #325d79;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.login-form-container button {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 8px;
+  background-color: #325d79;
+  font-size: medium;
+  color: #fff;
+  cursor: pointer;
+  display: block; /* Make button a block element */
+  margin: auto; /* Center the button horizontally */
+  width: 100%; /* Set max width for the button */
+  font-size: 100%;
+}
+
+.login-form-container button:hover {
+  background-color: #667e92;
+}

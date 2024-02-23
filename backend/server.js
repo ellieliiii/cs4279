@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import express from 'express';
 import * as f from './index.js';
 const app = express();
@@ -31,3 +32,11 @@ app.listen(port, () => {
 app.on('error', error => {
     console.error('Error starting the server:', error);
 });
+=======
+const app = require('./index');
+const port = process.env.PORT || 80;
+
+app.listen(port, () => {
+    console.log(`Student Match app listening on port ${port}`);
+})
+>>>>>>> 7c7704ead6f03209574f1a92c40496406f9396f9
