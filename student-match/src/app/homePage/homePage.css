@@ -16,22 +16,22 @@
   padding: 0.5rem;
 }
 .activity_button {
-  background-color: #FDFAEC;
+  background-color: #fdfaec;
   text-align: center;
   font-weight: normal;
-  border: 2px solid #04AA6D;
+  border: 2px solid #04aa6d;
   border-radius: 8px;
   font-size: 50%;
   padding: 0.5rem;
-  color: green
+  color: green;
 }
 .activity_header {
-  color: #04AA6D;
+  color: #04aa6d;
   text-align: center;
 }
 .activity_button:hover {
-  background-color: #04AA6D; /* Green */
-  color: #FDFAEC;
+  background-color: #04aa6d; /* Green */
+  color: #fdfaec;
 }
 .form {
   color: #325d79;
@@ -58,29 +58,29 @@
   text-align: left;
   font-weight: normal;
   font-size: 80%;
-  color: #04AA6D;
+  color: #04aa6d;
 }
 
 .activity_form input {
-  background-color: #FDFAEC;
+  background-color: #fdfaec;
   text-align: center;
   font-weight: normal;
-  border: 2px solid #04AA6D;
+  border: 2px solid #04aa6d;
   border-radius: 8px;
   font-size: 50%;
   padding: 0.5rem;
-  color: green
+  color: green;
 }
 
 .activity_form textarea {
-  background-color: #FDFAEC;
+  background-color: #fdfaec;
   text-align: center;
   font-weight: normal;
-  border: 2px solid #04AA6D;
+  border: 2px solid #04aa6d;
   border-radius: 8px;
   font-size: 50%;
   padding: 0.5rem;
-  color: green
+  color: green;
 }
 
 .activity_title {
@@ -114,15 +114,15 @@
   line-height: 10%;
 }
 
-input {
+.activity_input {
   color-scheme: dark;
 }
 
 .activity_listing {
-  background-color: #FDFAEC;
+  background-color: #fdfaec;
   text-align: center;
   font-weight: normal;
-  border: 2px solid #04AA6D;
+  border: 2px solid #04aa6d;
   border-radius: 8px;
   font-size: 50%;
   padding: 0.5rem;
@@ -130,10 +130,9 @@ input {
   width: 100%;
 }
 .activity_listing:hover {
-  background-color: #04AA6D; /* Green */
-  color: #FDFAEC;
+  background-color: #04aa6d; /* Green */
+  color: #fdfaec;
 }
-
 
 .name {
   color: #325d79;
@@ -201,10 +200,10 @@ input {
   color: #ba2c78; /* Adjusted to match the dark pink theme of Tab 2 */
 }
 /* Tab Two specific styles, ensuring Roboto is used */
-.tabs .tab:nth-of-type(2), .tabs .tab:nth-of-type(2) * {
-  font-family: 'Roboto', sans-serif;
+.tabs .tab:nth-of-type(2),
+.tabs .tab:nth-of-type(2) * {
+  font-family: "Roboto", sans-serif;
 }
-
 
 .tabs .tab:nth-of-type(2) button[type="submit"] {
   background-color: #fadaef; /* Lighter pink for the button background */
@@ -216,7 +215,6 @@ input {
 .tabs .tab:nth-of-type(2) .form-field-container select {
   border: 1px solid #f5f5f5; /* Dark pink border */
 }
-
 
 /* Tab Three */
 #tabthree + label {
@@ -271,7 +269,7 @@ body {
   box-sizing: border-box;
   /* padding-top: 10vh; */
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
-    Helvetica, Arial, "Lucida Grande", sans-serif, 'Roboto', sans-serif;
+    Helvetica, Arial, "Lucida Grande", sans-serif, "Roboto", sans-serif;
   font-weight: 300;
   line-height: 1.5;
   /* max-width: 60rem; */
