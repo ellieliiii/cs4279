@@ -13,7 +13,7 @@ const RoommateForm: React.FC<RoommateFormProps> = ({ onSubmit }) => {
     vunetId: "",
     pets: "",
     sleepSchedulePreferences: "earlyBird",
-    cleanliness: "tidy",
+    cleanliness: 50,
     overnightGuestsFrequency: 50,
     studyNoisePreference: 50, // New state for study noise preference
     studyLocationPreference: 50, // New state for study location preference
