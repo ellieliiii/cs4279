@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import "./loginForm.css";
+import { auth } from "firebase";
 
 interface LoginFormProps {
   onSubmit: (data: { email: string; password: string }) => void;
