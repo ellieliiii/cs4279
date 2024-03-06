@@ -27,21 +27,43 @@ function calculateSimilarity(roommate1: Roommate, roommate2: Roommate) {
   ) {
     score += 2;
   }
-  if (roommate1.cleanliness === roommate2.cleanliness) {
+  if (isWithinRange(roommate1.cleanliness, roommate2.cleanliness, 5)) {
     score += 1;
   }
   if (
-    roommate1.overnightGuestsFrequency === roommate2.overnightGuestsFrequency
+    isWithinRange(
+      roommate1.overnightGuestsFrequency,
+      roommate2.overnightGuestsFrequency,
+      5
+    )
   ) {
     score += 1;
   }
-  if (roommate1.studyNoisePreference === roommate2.studyNoisePreference) {
+  if (
+    isWithinRange(
+      roommate1.studyNoisePreference,
+      roommate2.studyNoisePreference,
+      5
+    )
+  ) {
     score += 2;
   }
-  if (roommate1.studyLocationPreference === roommate2.studyLocationPreference) {
+  if (
+    isWithinRange(
+      roommate1.studyLocationPreference,
+      roommate2.studyLocationPreference,
+      5
+    )
+  ) {
     score += 1;
   }
-  if (roommate1.friendsOverFrequency === roommate2.friendsOverFrequency) {
+  if (
+    isWithinRange(
+      roommate1.friendsOverFrequency,
+      roommate2.friendsOverFrequency,
+      5
+    )
+  ) {
     score += 2;
   }
   if (roommate1.smoke === roommate2.smoke) {
@@ -50,7 +72,13 @@ function calculateSimilarity(roommate1: Roommate, roommate2: Roommate) {
   if (roommate1.comfortableWithSmokers === roommate2.comfortableWithSmokers) {
     score += 1;
   }
-  if (roommate1.alcoholComfortLevel === roommate2.alcoholComfortLevel) {
+  if (
+    isWithinRange(
+      roommate1.alcoholComfortLevel,
+      roommate2.alcoholComfortLevel,
+      5
+    )
+  ) {
     score += 3;
   }
   if (roommate1.conflictResolution === roommate2.conflictResolution) {
@@ -68,6 +96,10 @@ function calculateSimilarity(roommate1: Roommate, roommate2: Roommate) {
   return score;
 }
 
+function isWithinRange(value1: number, value2: number, range: number) {
+  return Math.abs(value1 - value2) <= range;
+}
+
 export default function pairRoommates(roommates: Roommate[]) {
   for (let i = 0; i < roommates.length; i++) {
     const roommate1 = roommates[i];
@@ -77,7 +109,9 @@ export default function pairRoommates(roommates: Roommate[]) {
       if (i !== j) {
         const roommate2 = roommates[j];
         const score = calculateSimilarity(roommate1, roommate2);
-        scores.push({ roommate: roommate2, score });
+        if (score !== -1) {
+          scores.push({ roommate: roommate2, score });
+        }
       }
     }
 
