@@ -33,6 +33,27 @@
   background-color: #04aa6d; /* Green */
   color: #fdfaec;
 }
+
+.org_button {
+  background-color: #fdfaec;
+  text-align: center;
+  font-weight: normal;
+  border: 2px solid #db9004;
+  border-radius: 8px;
+  font-size: 90%;
+  padding: 0.5rem;
+  color: #db9004;
+}
+.org_header {
+  color: #db9004;
+  font-size: 120%;
+  text-align: center;
+}
+.org_button:hover {
+  background-color: #db9004; /* Green */
+  color: #fdfaec;
+}
+
 .form {
   color: #325d79;
   text-align: center;
@@ -131,6 +152,87 @@
 }
 .activity_listing:hover {
   background-color: #04aa6d; /* Green */
+  color: #fdfaec;
+}
+
+/* org stuff */
+.org_form label {
+  text-align: left;
+  font-weight: normal;
+  font-size: 80%;
+  color: #db9004;
+}
+
+.org_form input {
+  background-color: #fdfaec;
+  text-align: center;
+  font-weight: normal;
+  border: 2px solid #db9004;
+  border-radius: 8px;
+  font-size: 50%;
+  padding: 0.5rem;
+  color: #db9004;
+}
+
+.org_form textarea {
+  background-color: #fdfaec;
+  text-align: center;
+  font-weight: normal;
+  border: 2px solid #db9004;
+  border-radius: 8px;
+  font-size: 50%;
+  padding: 0.5rem;
+  color: #db9004;
+}
+
+.org_title {
+  text-align: left;
+  font-weight: bold;
+  font-size: 200%;
+  padding: 0.5rem;
+  line-height: 150%;
+}
+
+.org_list {
+  text-align: center;
+  font-weight: bold;
+  font-size: 80%;
+  padding: 0.5rem;
+  list-style-type: none;
+}
+.org_desc {
+  text-align: center;
+  font-weight: normal;
+  font-size: 130%;
+  padding: 0.5rem;
+  line-height: 150%;
+}
+
+.org_info {
+  text-align: center;
+  font-weight: lighter;
+  font-size: 80%;
+  padding: 0.5rem;
+  line-height: 10%;
+}
+
+.org_input {
+  color-scheme: dark;
+}
+
+.org_listing {
+  background-color: #fdfaec;
+  text-align: center;
+  font-weight: normal;
+  border: 2px solid #db9004;
+  border-radius: 8px;
+  font-size: 50%;
+  padding: 0.5rem;
+  color: #db9004;
+  width: 100%;
+}
+.org_listing:hover {
+  background-color: #db9004; /* Green */
   color: #fdfaec;
 }
 
