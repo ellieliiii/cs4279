@@ -5,8 +5,8 @@ h1 {
   
   /* Adjust the body style as necessary */
   body {
-    background-color: #fadaef; /* Baby pink background */
-    color: #ba2c78; /* Dark pink text */
+    background-color: #9cdee0; /* Baby pink background */
+    color: #0e7b7e; /* Dark pink text */
     font-family: Arial, sans-serif; /* Example font */
   }
   
@@ -35,7 +35,7 @@ h1 {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px; /* Adds spacing below each input */
-    border: 1px solid #ccc;
+    border: 1px solid #9cdee0;
     border-radius: 4px;
   }
   
@@ -49,7 +49,7 @@ h1 {
   }
   
   .friend_button {
-    background-color: #ba2c78; /* Dark pink background for the button */
+    background-color: #0e7b7e; /* Dark pink background for the button */
     color: #ffffff; /* White text for the button */
     padding: 10px 20px;
     border: none;
@@ -71,7 +71,7 @@ input[type="range"] {
     -webkit-appearance: none; /* Override default appearance */
     width: 100%; /* Slider width */
     height: 8px; /* Slider height */
-    background: #FADADD; /* Light pink background */
+    background: #9cdee0; /* Light pink background */
     margin-top: 15px;
     margin-bottom: 10px;
     outline: none; /* Remove outline */
@@ -85,7 +85,7 @@ input[type="range"] {
     appearance: none;
     width: 25px; /* Thumb width */
     height: 25px; /* Thumb height */
-    background: #D1479F; /* Dark pink thumb */
+    background: #0e7b7e; /* Dark pink thumb */
     cursor: pointer; /* Cursor on hover */
     border-radius: 50%; /* Round thumb */
   }
@@ -93,17 +93,17 @@ input[type="range"] {
   input[type="range"]::-moz-range-thumb {
     width: 25px; /* Thumb width */
     height: 25px; /* Thumb height */
-    background: #D1479F; /* Dark pink thumb */
+    background: #0e7b7e; /* Dark pink thumb */
     cursor: pointer; /* Cursor on hover */
     border-radius: 50%; /* Round thumb */
   }
   
   /* Optional: Style for the thumb hover effect */
   input[type="range"]:hover::-webkit-slider-thumb {
-    background: #C1358D; /* Slightly darker pink on hover */
+    background: #0e7b7e; /* Slightly darker pink on hover */
   }
   
   input[type="range"]:hover::-moz-range-thumb {
-    background: #C1358D; /* Slightly darker pink on hover */
+    background: #0e7b7e; /* Slightly darker pink on hover */
   }
   
