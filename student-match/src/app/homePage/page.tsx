@@ -4,6 +4,7 @@ import "./homePage.css";
 import RoommateHome from "./roommateHome";
 import ActivityHome from "./activityHome";
 import Head from "next/head";
+import FriendHome from "./friendHome";
 import Link from "next/link";
 import EditProfileForm from "./editProfileForm";
 
@@ -48,8 +49,8 @@ export default function Home() {
         <input type="radio" name="tabs" id="tabfive" />
         <label htmlFor="tabfive">Friend</label>
         <div className="tab">
-          <h1>Tab Five Content</h1>
-          <p>Tab five</p>
+          <h1></h1>
+          <FriendHome />
         </div>
 
         <input type="radio" name="tabs" id="tabsix" />

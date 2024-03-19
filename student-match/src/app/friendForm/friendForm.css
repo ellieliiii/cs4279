@@ -1,0 +1,109 @@
+h1 {
+    text-align: center;
+    margin: 40px;
+  }
+  
+  /* Adjust the body style as necessary */
+  body {
+    background-color: #fadaef; /* Baby pink background */
+    color: #ba2c78; /* Dark pink text */
+    font-family: Arial, sans-serif; /* Example font */
+  }
+  
+  .friend_form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .friend_form-field-container {
+    margin-bottom: 20px; /* Adds spacing between form fields */
+  }
+  
+  .friend_label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  
+  .friend_input[type="text"],
+  .friend_input[type="email"],
+  .friend_select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px; /* Adds spacing below each input */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .friend_input[type="range"] {
+    width: 100%;
+  }
+  
+  .friend_range-labels {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .friend_button {
+    background-color: #ba2c78; /* Dark pink background for the button */
+    color: #ffffff; /* White text for the button */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .friend_button:hover {
+    opacity: 0.9;
+  }
+  
+  .friend_button-container {
+    text-align: right;
+  }
+  
+  /* Style for range input (slider) */
+input[type="range"] {
+    -webkit-appearance: none; /* Override default appearance */
+    width: 100%; /* Slider width */
+    height: 8px; /* Slider height */
+    background: #FADADD; /* Light pink background */
+    margin-top: 15px;
+    margin-bottom: 10px;
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Make it slightly transparent */
+    -webkit-transition: .2s; /* Transition for smooth effect */
+    transition: opacity .2s;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default appearance */
+    appearance: none;
+    width: 25px; /* Thumb width */
+    height: 25px; /* Thumb height */
+    background: #D1479F; /* Dark pink thumb */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 50%; /* Round thumb */
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+    width: 25px; /* Thumb width */
+    height: 25px; /* Thumb height */
+    background: #D1479F; /* Dark pink thumb */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 50%; /* Round thumb */
+  }
+  
+  /* Optional: Style for the thumb hover effect */
+  input[type="range"]:hover::-webkit-slider-thumb {
+    background: #C1358D; /* Slightly darker pink on hover */
+  }
+  
+  input[type="range"]:hover::-moz-range-thumb {
+    background: #C1358D; /* Slightly darker pink on hover */
+  }
+  
