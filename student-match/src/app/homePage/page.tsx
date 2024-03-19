@@ -23,8 +23,8 @@ export default function Home() {
           <input type="radio" name="tabs" id="tabone" defaultChecked />
           <label htmlFor="tabone">Home</label>
           <div className="tab">
-            <h1>Tab One Content</h1>
-            <p>Welcome to StudentMatch!</p>
+            <h1>Welcome to StudentMatch!</h1>
+            <p>Explore each tab to find new friends on campus!</p>
           </div>
 
           <input type="radio" name="tabs" id="tabtwo" />

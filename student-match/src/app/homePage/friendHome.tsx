@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "../../../node_modules/next/link";
-// import pairFriends from "../utils/friendAlgorithm";
+import pairFriends from "../utils/friendAlgorithm";
 
 function FriendHome() {
   // Temporary button for testing algorithm
@@ -150,7 +150,7 @@ function FriendHome() {
       <h1>Find a Friend</h1>
       <Link href="/friendForm">Fill Out Friend Preference Form</Link>
       {/* Uncomment button to test matching algorithm*/}
-      {/* <button onClick={handleButtonClick}>Find Matches</button> */}
+      {/* <button onClick={handleButtonClick}>Find Friends</button> */}
     </div>
   );
 }
