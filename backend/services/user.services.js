@@ -1,5 +1,4 @@
 const mdb = require("../services/mdb.services");
-const { randomUUID } = require('crypto');
 
 /**
  * Add a new user to the Users collection in MongoDB
@@ -23,13 +22,8 @@ exports.addUserService = async (params, body) => {
             return { status: "ERROR", data: "User already exists" };
         }
 
-        // Generate UUID for user
-        // replace later with firebase generated id
-        const userId = randomUUID();
-
         // Insert user into MongoDB
         const result = await mdb.users.insertOne({
-            userId: userId,
             ...body
         });
 
