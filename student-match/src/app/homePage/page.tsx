@@ -5,6 +5,7 @@ import RoommateHome from "./roommateHome";
 import ActivityHome from "./activityHome";
 import OrgHome from "./orgHome";
 import Head from "next/head";
+import FriendHome from "./friendHome";
 import Link from "next/link";
 import EditProfileForm from "./editProfileForm";
 
@@ -22,8 +23,8 @@ export default function Home() {
           <input type="radio" name="tabs" id="tabone" defaultChecked />
           <label htmlFor="tabone">Home</label>
           <div className="tab">
-            <h1>Tab One Content</h1>
-            <p>Welcome to StudentMatch!</p>
+            <h1>Welcome to StudentMatch!</h1>
+            <p>Explore each tab to find new friends on campus!</p>
           </div>
 
           <input type="radio" name="tabs" id="tabtwo" />
@@ -50,8 +51,8 @@ export default function Home() {
           <input type="radio" name="tabs" id="tabfive" />
           <label htmlFor="tabfive">Friend</label>
           <div className="tab">
-            <h1>Tab Five Content</h1>
-            <p>Tab five</p>
+            <h1></h1>
+            <FriendHome />
           </div>
 
           <input type="radio" name="tabs" id="tabsix" />

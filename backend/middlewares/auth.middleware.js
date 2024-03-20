@@ -1,4 +1,4 @@
-const config = require(process.cwd() + '/config/config');
+const config = require('../config/config');
 
 const admin = config.admin;
 

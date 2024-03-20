@@ -2,7 +2,14 @@
 
 import React, { useState } from "react";
 import "./loginForm.css";
-import { auth } from "firebase";
+import { useRouter } from "next/router";
+// Correct import for Firebase v9+
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../../../firebase"; // Adjust the path as necessary
 
 interface LoginFormProps {
   onSubmit: (data: { email: string; password: string }) => void;

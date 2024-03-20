@@ -3,6 +3,13 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import "./signUpForm.css";
+// Correct import for Firebase v9+
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../../../firebase"; // Adjust the path as necessary
 
 interface SignUpFormProps {
   onSubmit: (data: {
@@ -26,9 +33,34 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    onSubmit(formData);
+  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   onSubmit(formData);
+  // };
+
+  const handleSubmit = (formData: {
+    name: string;
+    email: string;
+    phoneNumber: string;
+    password: string;
+  }) => {
+    // Use Firebase Auth to create a new user
+    createUserWithEmailAndPassword(auth, formData.email, formData.password)
+      .then((userCredential) => {
+        // User created successfully, you can access the user like this:
+        const user = userCredential.user;
+        console.log("User registered:", user);
+
+        // Optional: Update user profile with additional information
+        // or save the additional information to your Firestore/Database
+
+        // Redirect the user
+        router.push("/homePage");
+      })
+      .catch((error) => {
+        console.error("Error registering user:", error.message);
+        // Handle errors here, such as showing an error message to the user
+      });
   };
 
   return (
