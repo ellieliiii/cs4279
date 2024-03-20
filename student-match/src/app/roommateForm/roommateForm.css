@@ -1,10 +1,10 @@
-h1 {
+.roommate h1 {
     text-align: center;
     margin: 40px;
   }
   
   /* Adjust the body style as necessary */
-  body {
+  .roommate {
     background-color: #fadaef; /* Baby pink background */
     color: #ba2c78; /* Dark pink text */
     font-family: Arial, sans-serif; /* Example font */

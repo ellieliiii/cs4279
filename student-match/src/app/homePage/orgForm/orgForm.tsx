@@ -50,9 +50,9 @@ const OrgForm: React.FC<OrgFormProps> = ({ onSubmit }) => {
 
     return (
         <div>
-            <h2 className="org_header">Post a New Activity</h2>
+            <h2 className="org_header">Register a New Organization</h2>
             <form className="org_form" onSubmit={handleSubmit}>
-                <label htmlFor="title">Title:</label>
+                <label htmlFor="title">Organization Name:</label>
                 <br className="title_break"></br>
                 <input
                     className="org_input"
@@ -70,17 +70,7 @@ const OrgForm: React.FC<OrgFormProps> = ({ onSubmit }) => {
                     value={formData.description}
                     onChange={handleChange}
                 ></textarea>
-                <label htmlFor="date">Date:</label>
-                <br className="title_break"></br>
-                <input
-                    className="org_input"
-                    type="date"
-                    id="date"
-                    name="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                />
-                <label htmlFor="organizer">Organizer:</label>
+                <label htmlFor="organizer">Main Contact:</label>
                 <br className="title_break"></br>
                 <input
                     className="org_input"
@@ -91,8 +81,10 @@ const OrgForm: React.FC<OrgFormProps> = ({ onSubmit }) => {
                     onChange={handleChange}
                 />
                 <br></br>
+                <br></br>
+                <br></br>
                 <button className="org_button" type="submit">
-                    Post Activity
+                    Register Organization
                 </button>
                 <button className="org_button" onClick={handleCancel}>
                     Cancel

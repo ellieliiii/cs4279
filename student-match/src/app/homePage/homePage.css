@@ -46,7 +46,17 @@
 }
 .org_header {
   color: #db9004;
-  font-size: 120%;
+  font-size: 300%;
+  text-align: center;
+}
+.org_header h2{
+  color: #db9004;
+  font-size: 90%;
+  text-align: center;
+}
+.org_header p{
+  color: #db9004;
+  font-size: 30%;
   text-align: center;
 }
 .org_button:hover {
@@ -157,9 +167,9 @@
 
 /* org stuff */
 .org_form label {
-  text-align: left;
+  text-align: center;
   font-weight: normal;
-  font-size: 80%;
+  font-size: 150%;
   color: #db9004;
 }
 
@@ -169,7 +179,7 @@
   font-weight: normal;
   border: 2px solid #db9004;
   border-radius: 8px;
-  font-size: 50%;
+  font-size: 100%;
   padding: 0.5rem;
   color: #db9004;
 }
@@ -180,7 +190,7 @@
   font-weight: normal;
   border: 2px solid #db9004;
   border-radius: 8px;
-  font-size: 50%;
+  font-size: 100%;
   padding: 0.5rem;
   color: #db9004;
 }
@@ -188,7 +198,7 @@
 .org_title {
   text-align: left;
   font-weight: bold;
-  font-size: 200%;
+  font-size: 125%;
   padding: 0.5rem;
   line-height: 150%;
 }
@@ -203,7 +213,7 @@
 .org_desc {
   text-align: center;
   font-weight: normal;
-  font-size: 130%;
+  font-size: 200%;
   padding: 0.5rem;
   line-height: 150%;
 }
@@ -211,9 +221,9 @@
 .org_info {
   text-align: center;
   font-weight: lighter;
-  font-size: 80%;
+  font-size: 100%;
   padding: 0.5rem;
-  line-height: 10%;
+  line-height: 20%;
 }
 
 .org_input {
@@ -231,8 +241,18 @@
   color: #db9004;
   width: 100%;
 }
+.org_listing p {
+  font-size: 80%;
+  width: 100%;
+  line-height: 140%;
+}
+
 .org_listing:hover {
-  background-color: #db9004; /* Green */
+  background-color: #db9004;
+  color: #fdfaec;
+}
+
+.org_listing:hover p{
   color: #fdfaec;
 }
 

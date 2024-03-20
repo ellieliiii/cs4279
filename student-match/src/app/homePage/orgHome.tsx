@@ -20,6 +20,7 @@ const OrgHome: React.FC = () => {
 
     return (
         <div className="org_tab">
+            <br></br>
             <div style={{ flex: 1, marginRight: '20px' }}>
                 {/* Render the button when ActivityForm is not shown */}
                 {!showOrgForm && (
