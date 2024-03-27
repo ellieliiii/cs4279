@@ -35,7 +35,7 @@
     margin-bottom: 20px; /* Adds spacing between form fields */
   }
 
-  .roommate ::placeholder {
+  #roommate ::placeholder {
     color: #ba2c78;
     opacity: 0.5; /* Firefox */
   }

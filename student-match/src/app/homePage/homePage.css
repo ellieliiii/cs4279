@@ -366,6 +366,7 @@
 }
 .tabs .tab:nth-of-type(5) {
   background: #9cdee0;
+  color: #0e7b7e;
 }
 /* Tab Six */
 #tabsix + label {

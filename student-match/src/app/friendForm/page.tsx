@@ -113,15 +113,10 @@ const FriendForm: React.FC<FriendFormProps> = ({ onSubmit }) => {
   ];
 
   return (
-<<<<<<< HEAD
+
     <body id="friend">
       <div className="friend_div">
         <h1 className="friend_title">Friend Preferences</h1>
-=======
-    <body className="friend">
-      <div>
-        <h1>Find Your Match</h1>
->>>>>>> a4953ebd78dcb87ed387b28871d1be9a5d4f5656
         <form onSubmit={handleSubmit} className="friend_form-container">
           {/* Personal Information Section */}
           <div className="friend_form-field-container">
