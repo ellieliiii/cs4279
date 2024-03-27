@@ -9,21 +9,28 @@ interface FriendFormProps {
 const FriendForm: React.FC<FriendFormProps> = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
     fullName: "",
-    vanderbiltEmail: "",
-    vunetId: "",
-    pets: "",
-    sleepSchedulePreferences: "earlyBird",
-    cleanliness: 50,
-    overnightGuestsFrequency: 50,
-    studyNoisePreference: 50, // New state for study noise preference
-    studyLocationPreference: 50, // New state for study location preference
-    friendsOverFrequency: 50, // New state for frequency of having friends over
-    smoke: "No",
-    comfortableWithSmokers: "No",
-    alcoholComfortLevel: 50,
-    conflictResolution: "Discuss calmly",
-    locationPreference: "Zeppos", // Default value as an example
+    email: "",
+    personalityType: 50, // Introvert-Extrovert Scale
+    matchPersonalityType: 50, // Preference for Friend's Personality Type
+    hobbies: [], // This will be a multi-select field for hobbies
+    favoriteMusicGenres: [], // Multi-select for music genres
+    academicStanding: [], // Multi-select for academic standing
+    communicationPreference: [], // Multi-select for communication preferences
   });
+
+  const handleMultiSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, options } = e.target;
+    const value = [];
+    for (let i = 0, l = options.length; i < l; i++) {
+      if (options[i].selected) {
+        value.push(options[i].value);
+      }
+    }
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -42,11 +49,74 @@ const FriendForm: React.FC<FriendFormProps> = ({ onSubmit }) => {
     onSubmit(formData);
   };
 
+  // Hobbies options for the multi-select
+  const hobbiesOptions = [
+    "Reading",
+    "Gaming",
+    "Hiking",
+    "Cooking",
+    "Traveling",
+    "Photography",
+    "Sports",
+    "Crafting",
+    "Music",
+    "Blogging",
+    "Gardening",
+    "Drawing",
+    "Dancing",
+    "Yoga",
+    "Collecting",
+    "Fishing",
+    "Surfing",
+    "Cycling",
+    "Watching Movies",
+    "Board Games",
+  ];
+
+  // Music genres options for the multi-select
+  const musicGenresOptions = [
+    "Pop",
+    "Rock",
+    "Jazz",
+    "Classical",
+    "Electronic",
+    "Rap",
+    "Country",
+    "R&B",
+    "Reggae",
+    "Blues",
+  ];
+
+  // Academic standing options for the multi-select
+  const academicStandingOptions = [
+    "Freshman",
+    "Sophomore",
+    "Junior",
+    "Senior",
+    "Masters",
+    "PhD",
+  ];
+
+  // Communication preferences options for the multi-select
+  const communicationOptions = [
+    "Text",
+    "Call",
+    "Email",
+    "In Person",
+    "Instagram",
+    "Snapchat",
+    "WeChat",
+    "WhatsApp",
+    "GroupMe",
+    "Discord",
+  ];
+
   return (
     <body className="friend">
       <div>
-        <h1>Friend Preferences</h1>
+        <h1>Find Your Match</h1>
         <form onSubmit={handleSubmit} className="friend_form-container">
+          {/* Personal Information Section */}
           <div className="friend_form-field-container">
             <label htmlFor="fullName" className="friend_label">
               Full Name
@@ -63,273 +133,144 @@ const FriendForm: React.FC<FriendFormProps> = ({ onSubmit }) => {
           </div>
 
           <div className="friend_form-field-container">
-            <label htmlFor="vanderbiltEmail" className="friend_label">
-              Vanderbilt Email
+            <label htmlFor="email" className="friend_label">
+              Email
             </label>
             <input
               type="email"
-              id="vanderbiltEmail"
-              name="vanderbiltEmail"
-              value={formData.vanderbiltEmail}
+              id="email"
+              name="email"
+              value={formData.email}
               onChange={handleChange}
-              placeholder="Your Vanderbilt email"
+              placeholder="Your email"
               className="friend_input"
             />
           </div>
 
+          {/* Personality and Preferences Section */}
           <div className="friend_form-field-container">
-            <label htmlFor="vunetId" className="friend_label">
-              VUnetID
+            <label className="friend_label">
+              Are you an extroverted or introverted person?
             </label>
-            <input
-              type="text"
-              id="vunetId"
-              name="vunetId"
-              value={formData.vunetId}
-              onChange={handleChange}
-              placeholder="Your VUnetID"
-              className="friend_input"
-            />
-          </div>
-
-          <div className="friend_form-field-container">
-            <label htmlFor="sleepSchedulePreferences" className="friend_label">
-              Sleep Schedule Preferences
-            </label>
-            <select
-              id="sleepSchedulePreferences"
-              name="sleepSchedulePreferences"
-              value={formData.sleepSchedulePreferences}
-              onChange={handleChange}
-              className="friend_select"
-            >
-              <option value="earlyBird">Early Bird</option>
-              <option value="nightOwl">Night Owl</option>
-            </select>
-          </div>
-
-          <div className="friend_form-field-container">
-            <label htmlFor="pets" className="friend_label">
-              Do you have any pets
-            </label>
-            <select
-              id="pets"
-              name="pets"
-              value={formData.pets}
-              onChange={handleChange}
-              className="friend_select"
-            >
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-            </select>
-          </div>
-
-          <div className="friend_form-field-container">
-            <label className="friend_label">Cleanliness</label>
             <input
               type="range"
-              min="1"
+              min="0"
               max="100"
-              value={formData.cleanliness}
+              value={formData.personalityType}
               onChange={handleChange}
-              name="cleanliness"
+              name="personalityType"
               className="friend_input"
             />
             <div className="friend_range-labels">
-              <span>Tidy</span>
-              <span>Average</span>
-              <span>Messy</span>
+              <span>Introvert</span>
+              <span>Extrovert</span>
             </div>
           </div>
 
           <div className="friend_form-field-container">
             <label className="friend_label">
-              How often do you have overnight guests over?
+              Would you like to be matched with an extrovert or introvert?
             </label>
             <input
               type="range"
-              min="1"
+              min="0"
               max="100"
-              value={formData.overnightGuestsFrequency}
+              value={formData.matchPersonalityType}
               onChange={handleChange}
-              name="overnightGuestsFrequency"
+              name="matchPersonalityType"
               className="friend_input"
             />
             <div className="friend_range-labels">
-              <span>Everyday</span>
-              <span>Monthly</span>
-              <span>Never</span>
+              <span>Introvert</span>
+              <span>Extrovert</span>
             </div>
           </div>
 
-          {/* New slider for study noise preference */}
+          {/* Hobbies Section */}
           <div className="friend_form-field-container">
-            <label className="friend_label">
-              Are you comfortable with background noise?
-            </label>
-            <input
-              type="range"
-              min="1"
-              max="100"
-              value={formData.studyNoisePreference}
-              onChange={handleChange}
-              name="studyNoisePreference"
-              className="friend_input"
-            />
-            <div className="friend_range-labels">
-              <span>Quiet</span>
-              <span>Moderate</span>
-              <span>Noisy</span>
-            </div>
-          </div>
-
-          {/* New slider for study location preference */}
-          <div className="friend_form-field-container">
-            <label className="friend_label">
-              Do you normally study in your room or elsewhere?
-            </label>
-            <input
-              type="range"
-              min="1"
-              max="100"
-              value={formData.studyLocationPreference}
-              onChange={handleChange}
-              name="studyLocationPreference"
-              className="friend_input"
-            />
-            <div className="friend_range-labels">
-              <span>In Room</span>
-              <span>Both</span>
-              <span>Elsewhere</span>
-            </div>
-          </div>
-
-          {/* New slider for how often friends are over */}
-          <div className="friend_form-field-container">
-            <label className="friend_label">
-              How often do you like to have friends over?
-            </label>
-            <input
-              type="range"
-              min="1"
-              max="100"
-              value={formData.friendsOverFrequency}
-              onChange={handleChange}
-              name="friendsOverFrequency"
-              className="friend_input"
-            />
-            <div className="friend_range-labels">
-              <span>Daily</span>
-              <span>Weekly</span>
-              <span>Never</span>
-            </div>
-          </div>
-
-          {/* New field for smoking preference */}
-          <div className="friend_form-field-container">
-            <label htmlFor="smoke" className="friend_label">
-              Do you smoke?
+            <label htmlFor="hobbies" className="friend_label">
+              What are your hobbies? (Select multiple)
             </label>
             <select
-              id="smoke"
-              name="smoke"
-              value={formData.smoke}
-              onChange={handleChange}
+              id="hobbies"
+              name="hobbies"
+              multiple={true}
+              value={formData.hobbies}
+              onChange={handleMultiSelectChange}
               className="friend_select"
             >
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
+              {hobbiesOptions.map((hobby) => (
+                <option key={hobby} value={hobby}>
+                  {hobby}
+                </option>
+              ))}
             </select>
           </div>
 
-          {/* New field for comfort living with smokers */}
+          {/* Favorite Music Genres Section */}
           <div className="friend_form-field-container">
-            <label htmlFor="comfortableWithSmokers" className="friend_label">
-              Are you comfortable living with someone who smokes?
+            <label htmlFor="favoriteMusicGenres" className="friend_label">
+              Favorite Music Genres (Select multiple)
             </label>
             <select
-              id="comfortableWithSmokers"
-              name="comfortableWithSmokers"
-              value={formData.comfortableWithSmokers}
-              onChange={handleChange}
+              id="favoriteMusicGenres"
+              name="favoriteMusicGenres"
+              multiple={true}
+              value={formData.favoriteMusicGenres}
+              onChange={handleMultiSelectChange}
               className="friend_select"
             >
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
+              {musicGenresOptions.map((genre) => (
+                <option key={genre} value={genre}>
+                  {genre}
+                </option>
+              ))}
             </select>
           </div>
 
-          {/* New slider for alcohol comfort level */}
+          {/* Academic Standing Section */}
           <div className="friend_form-field-container">
-            <label className="friend_label">
-              How comfortable are you with living with someone that drinks
-              alcohol?
-            </label>
-            <input
-              type="range"
-              min="1"
-              max="100"
-              value={formData.alcoholComfortLevel}
-              onChange={handleChange}
-              name="alcoholComfortLevel"
-              className="friend_input"
-            />
-            <div className="friend_range-labels">
-              <span>Very </span>
-              <span>Moderate</span>
-              <span>Not comfortable</span>
-            </div>
-          </div>
-
-          {/* New field for conflict resolution */}
-          <div className="friend_form-field-container">
-            <label htmlFor="conflictResolution" className="friend_label">
-              How do you prefer to resolve conflicts?
+            <label htmlFor="academicStanding" className="friend_label">
+              Your Academic Standing (Select multiple)
             </label>
             <select
-              id="conflictResolution"
-              name="conflictResolution"
-              value={formData.conflictResolution}
-              onChange={handleChange}
+              id="academicStanding"
+              name="academicStanding"
+              multiple={true}
+              value={formData.academicStanding}
+              onChange={handleMultiSelectChange}
               className="friend_select"
             >
-              <option value="Discuss calmly">Discuss calmly</option>
-              <option value="Seek mediation">Seek mediation</option>
-              <option value="Need time to cool off">Need time to cool off</option>
-              <option value="Address immediately">Address immediately</option>
+              {academicStandingOptions.map((standing) => (
+                <option key={standing} value={standing}>
+                  {standing}
+                </option>
+              ))}
             </select>
           </div>
 
-          {/* New field for location preferences */}
+          {/* Communication Preferences Section */}
           <div className="friend_form-field-container">
-            <label htmlFor="locationPreference" className="friend_label">
-              Location Preferences:
+            <label htmlFor="communicationPreference" className="friend_label">
+              Preferred form of communication? (Select multiple)
             </label>
             <select
-              id="locationPreference"
-              name="locationPreference"
-              value={formData.locationPreference}
-              onChange={handleChange}
+              id="communicationPreference"
+              name="communicationPreference"
+              multiple={true}
+              value={formData.communicationPreference}
+              onChange={handleMultiSelectChange}
               className="friend_select"
             >
-              {/* List of locations */}
-              <option value="Zeppos">Zeppos</option>
-              <option value="Rothschild">Rothschild</option>
-              <option value="EBI">EBI</option>
-              <option value="Moore">Moore</option>
-              <option value="Warren">Warren</option>
-              <option value="Morgan">Morgan</option>
-              <option value="Lewis">Lewis</option>
-              <option value="Branscomb">Branscomb</option>
-              <option value="McGill">McGill</option>
-              <option value="Mayfield">Mayfield</option>
-              <option value="McTyeire">McTyeire</option>
-              <option value="Cole">Cole</option>
-              <option value="Tolman">Tolman</option>
-              <option value="Village">Village</option>
+              {communicationOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
             </select>
           </div>
 
+          {/* Submit Button */}
           <div className="friend_button-container">
             <button type="submit" className="friend_button">
               Submit
