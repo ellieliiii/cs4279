@@ -4,7 +4,7 @@ h1 {
   }
   
   /* Adjust the body style as necessary */
-  body {
+  .friend {
     background-color: #9cdee0; /* Baby pink background */
     color: #0e7b7e; /* Dark pink text */
     font-family: Arial, sans-serif; /* Example font */
