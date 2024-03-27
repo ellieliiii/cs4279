@@ -1,6 +1,7 @@
 # root
 /node_modules/
 /package-lock.json
+firebase.js
 
 # backend
 /backend/config.js
