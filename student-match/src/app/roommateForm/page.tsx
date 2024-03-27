@@ -94,7 +94,10 @@ const RoommateForm: React.FC<RoommateFormProps> = ({ onSubmit }) => {
           </div>
 
           <div className="roommate_form-field-container">
-            <label htmlFor="sleepSchedulePreferences" className="roommate_label">
+            <label
+              htmlFor="sleepSchedulePreferences"
+              className="roommate_label"
+            >
               Sleep Schedule Preferences
             </label>
             <select
@@ -145,7 +148,7 @@ const RoommateForm: React.FC<RoommateFormProps> = ({ onSubmit }) => {
 
           <div className="roommate_form-field-container">
             <label className="roommate_label">
-              How often do you have overnight guests over?
+              How often do you have overnight guests over
             </label>
             <input
               type="range"
@@ -296,7 +299,9 @@ const RoommateForm: React.FC<RoommateFormProps> = ({ onSubmit }) => {
             >
               <option value="Discuss calmly">Discuss calmly</option>
               <option value="Seek mediation">Seek mediation</option>
-              <option value="Need time to cool off">Need time to cool off</option>
+              <option value="Need time to cool off">
+                Need time to cool off
+              </option>
               <option value="Address immediately">Address immediately</option>
             </select>
           </div>
