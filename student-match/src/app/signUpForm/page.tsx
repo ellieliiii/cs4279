@@ -28,6 +28,8 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
     password: "",
   });
 
+  const router = useRouter();
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -38,29 +40,46 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
   //   onSubmit(formData);
   // };
 
-  const handleSubmit = (formData: {
-    name: string;
-    email: string;
-    phoneNumber: string;
-    password: string;
-  }) => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     // Use Firebase Auth to create a new user
-    createUserWithEmailAndPassword(auth, formData.email, formData.password)
-      .then((userCredential) => {
-        // User created successfully, you can access the user like this:
-        const user = userCredential.user;
-        console.log("User registered:", user);
+    // createUserWithEmailAndPassword(auth, formData.email, formData.password)
+    //   .then((userCredential) => {
+    //     // User created successfully, you can access the user like this:
+    //     const user = userCredential.user;
+    //     console.log("User registered:", user);
 
-        // Optional: Update user profile with additional information
-        // or save the additional information to your Firestore/Database
+    //     // Optional: Update user profile with additional information
+    //     // or save the additional information to your Firestore/Database
 
-        // Redirect the user
-        router.push("/homePage");
-      })
-      .catch((error) => {
-        console.error("Error registering user:", error.message);
-        // Handle errors here, such as showing an error message to the user
+    //     // Redirect the user
+    //     router.push("/homePage");
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error registering user:", error.message);
+    //     // Handle errors here, such as showing an error message to the user
+    //   });
+
+    // Adds user to MongoDB
+    const url = "http://localhost/api/user";
+    const data = formData;
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
+
+      const responseData = await response.json();
+      console.log(responseData); // Handle the response data accordingly
+    } catch (error) {
+      console.error("Error:", error);
+    }
+
+    router.push("/homePage");
   };
 
   return (
