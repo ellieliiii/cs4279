@@ -1,6 +1,7 @@
 "use client";
 import "./roommateForm.css"; // Ensure this path matches your updated CSS file name
 import React, { useState } from "react";
+import styles from "@/app/page.module.css";
 
 interface RoommateFormProps {
   onSubmit: (formData: any) => void;
@@ -43,9 +44,9 @@ const RoommateForm: React.FC<RoommateFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <body className="roommate">
-      <div>
-        <h1>Roommate Preferences</h1>
+    <body id="roommate">
+      <div className="roommate_div">
+        <h1 className="roommate_title">Roommate Preferences</h1>
         <form onSubmit={handleSubmit} className="roommate_form-container">
           <div className="roommate_form-field-container">
             <label htmlFor="fullName" className="roommate_label">

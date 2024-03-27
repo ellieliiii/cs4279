@@ -256,6 +256,12 @@
   color: #fdfaec;
 }
 
+.friend {
+  background-color: #9cdee0; /* Baby pink background */
+  color: #0e7b7e; /* Dark pink text */
+  font-family: Arial, sans-serif; /* Example font */
+}
+
 .name {
   color: #325d79;
   text-align: center;
@@ -324,7 +330,7 @@
 /* Tab Two specific styles, ensuring Roboto is used */
 .tabs .tab:nth-of-type(2),
 .tabs .tab:nth-of-type(2) * {
-  font-family: "Roboto", sans-serif;
+  /*font-family: "Roboto", sans-serif;*/
 }
 
 .tabs .tab:nth-of-type(2) button[type="submit"] {
@@ -390,8 +396,9 @@ body {
   min-height: 100vh;
   box-sizing: border-box;
   /* padding-top: 10vh; */
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
-    Helvetica, Arial, "Lucida Grande", sans-serif, "Roboto", sans-serif;
+  /*font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",*/
+  /*  Helvetica, Arial, "Lucida Grande", sans-serif, "Roboto", sans-serif;*/
+  font-family: sans-serif;
   font-weight: 300;
   line-height: 1.5;
   /* max-width: 60rem; */

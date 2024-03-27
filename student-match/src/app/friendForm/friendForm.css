@@ -1,20 +1,30 @@
-h1 {
-    text-align: center;
-    margin: 40px;
-  }
-  
-  /* Adjust the body style as necessary */
-  .friend {
-    background-color: #9cdee0; /* Baby pink background */
-    color: #0e7b7e; /* Dark pink text */
+/* Adjust the body style as necessary */
+  #friend {
+    background-color: #9cdee0;/* Baby pink background */
+    color: #0e7b7e;/* Dark pink text */
     font-family: Arial, sans-serif; /* Example font */
   }
-  
+
+  .friend_title {
+    background-color: #9cdee0;/* Baby pink background */
+    color: #0e7b7e;/* Dark pink text */
+    text-align: center;
+    margin: 40px;
+    font-family: Arial, sans-serif; /* Example font */
+  }
+  .friend_div {
+    background-color: #9cdee0;/* Baby pink background */
+    color: #0e7b7e;/* Dark pink text */
+    font-family: Arial, sans-serif; /* Example font */
+  }
+
   .friend_form-container {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
     background-color: #ffffff;
+    color: #0e7b7e;
+    text-align: center;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
@@ -26,12 +36,20 @@ h1 {
   .friend_label {
     display: block;
     margin-bottom: 5px;
+    color: #0e7b7e;
     font-weight: 500;
+  }
+
+  .friend ::placeholder {
+    color: #0e7b7e;
+    opacity: 0.5; /* Firefox */
   }
   
   .friend_input[type="text"],
   .friend_input[type="email"],
   .friend_select {
+    background-color: #fdfaec;
+    color: #0e7b7e;
     width: 100%;
     padding: 10px;
     margin-bottom: 10px; /* Adds spacing below each input */
