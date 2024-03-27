@@ -15,6 +15,10 @@ const client = new MongoClient(config.mongoURI, {
 // Database and collections being connected
 const db = client.db("match");
 const users = db.collection("users");
+const orgs = db.collection("orgs");
+const acts = db.collection("activities");
+const roomies = db.collection("roommate-forms");
+const friends = db.collection("friend-forms");
 
 async function connect() {
   try {
@@ -32,4 +36,4 @@ async function connect() {
 // await connect().catch(console.dir);
 connect().catch(console.dir);
 
-module.exports = { client, db, users };
+module.exports = { client, db, users, orgs, acts, roomies, friends };

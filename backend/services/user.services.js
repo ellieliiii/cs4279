@@ -27,8 +27,6 @@ exports.addUserService = async (params, body) => {
             ...body
         });
 
-        console.log(result);
-
         console.log("addUserService Success:", result);
         return { status: "OK", data: body };
     } catch (error) {
@@ -37,10 +35,28 @@ exports.addUserService = async (params, body) => {
     }
 }
 
-// // add documentation here
-// exports.getUserByIdService = async (params, body) => {
-//     // implement getUserById service here
-// }
+/**
+ * 
+ * @param {*} params 
+ * @param {*} body 
+ * @returns 
+ */
+exports.getUserByIdService = async (params, body) => {
+    try {
+        const user = await mdb.users.findOne({ email: body.id });
+        if (!user) {
+            console.log("getUserByIdService Error: User not found");
+            return { status: "ERROR", data: "User not found" };
+        }
+        
+        const result = user;
+        console.log("addUserService Success:", result);
+        return { status: "OK", data: body };
+    } catch (error) {
+        console.log("getUserByIdService Error:", error);
+        return { status: "ERROR", data:error.message };
+    }
+}
 
 // // add documentation here
 // exports.getAllUsersService = async (params, body) => {
