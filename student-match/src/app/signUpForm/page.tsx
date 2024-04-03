@@ -9,7 +9,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { auth } from "../../../firebase"; // Adjust the path as necessary
+import { auth } from "../../../firebase/firebase"; // Adjust the path as necessary
 
 interface SignUpFormProps {
   onSubmit: (data: {
@@ -21,6 +21,9 @@ interface SignUpFormProps {
 }
 
 const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
+
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
