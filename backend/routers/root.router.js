@@ -1,5 +1,6 @@
 const express = require('express');
 const userRouter = require('./user.router');
+const orgRouter = require('./org.router');
 
 const RootRouter = express.Router();
 
@@ -9,5 +10,6 @@ RootRouter.get('/', (req, res) => {
 
 // add more routes here
 RootRouter.use('/user', userRouter);
+RootRouter.use('/org', orgRouter);
 
 module.exports = RootRouter
