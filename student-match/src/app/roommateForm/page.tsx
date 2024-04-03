@@ -2,6 +2,7 @@
 import "./roommateForm.css"; // Ensure this path matches your updated CSS file name
 import React, { useState } from "react";
 import styles from "@/app/page.module.css";
+import { useRouter } from "next/navigation";
 
 interface RoommateFormProps {
   onSubmit: (formData: any) => void;
@@ -26,6 +27,8 @@ const RoommateForm: React.FC<RoommateFormProps> = ({ onSubmit }) => {
     locationPreference: "Zeppos", // Default value as an example
   });
 
+  const router = useRouter();
+
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -38,9 +41,30 @@ const RoommateForm: React.FC<RoommateFormProps> = ({ onSubmit }) => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(formData);
+    // onSubmit(formData);
+
+    // Adds roommate form to MongoDB
+    const url = "http://localhost/api/roommate";
+    const data = formData;
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const responseData = await response.json();
+      console.log(responseData); // Handle the response data accordingly
+    } catch (error) {
+      console.error("Error:", error);
+    }
+
+    router.push("/homePage");
   };
 
   return (
