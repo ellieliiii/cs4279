@@ -73,9 +73,9 @@ export default function pairFriends(friends: Friend[]) {
     scores.sort((a, b) => b.score - a.score);
 
     // Keep only the top 3 matches
-    const top5Matches = scores.slice(0, 3);
+    const topMatches = scores.slice(0, 3);
 
     // Add matches to user's data
-    friend1.matches = top5Matches;
+    friend1.matches = topMatches;
   }
 }

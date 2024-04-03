@@ -1,11 +1,10 @@
 "use client";
-import React from "react";
 import Link from "../../../node_modules/next/link";
 import pairRoommates from "../utils/roommateAlgorithm";
 
 function RoommateHome() {
   // Temporary button for testing algorithm
-  const handleButtonClick = () => {
+  const handleButtonClick = async () => {
     const roommates = [
       {
         fullName: "user1",
@@ -134,14 +133,33 @@ function RoommateHome() {
         matches: null,
       },
     ];
-    pairRoommates(roommates);
-    console.log(roommates[0].matches);
-    console.log(roommates[1].matches);
-    console.log(roommates[2].matches);
-    console.log(roommates[3].matches);
-    console.log(roommates[4].matches);
-    console.log(roommates[5].matches);
-    console.log(roommates[6].matches);
+    // Commenting out tests with hard coded data for now
+    // pairRoommates(roommates);
+    // console.log(roommates[0].matches);
+    // console.log(roommates[1].matches);
+    // console.log(roommates[2].matches);
+    // console.log(roommates[3].matches);
+    // console.log(roommates[4].matches);
+    // console.log(roommates[5].matches);
+    // console.log(roommates[6].matches);
+
+    // Gets all roommate forms from MongoDB
+    const url = "http://localhost/api/roommate";
+
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const responseData = await response.json();
+      console.log(responseData); // Handle the response data accordingly
+      pairRoommates(responseData);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   // Direct navigation using standard anchor tag
