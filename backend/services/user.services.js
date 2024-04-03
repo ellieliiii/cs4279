@@ -147,4 +147,6 @@ exports.deleteUserByIdService = async(params, body) => {
 /*********************************
  ************ TESTING ************
  *********************************/
-console.log("Hi");
+ setTimeout(function() { // first set of tests to run (user, org, roommate)
+    console.log("I am user testing, I am running");
+  }, 5000);

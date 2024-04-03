@@ -205,3 +205,6 @@ exports.removeMemberOrgService = async (params, body) => {
 /*********************************
  ************ TESTING ************
  *********************************/
+ setTimeout(function() { // second set of tests to run (user, org, roommate)
+    console.log("I am org testing, I am running");
+  }, 10000);
