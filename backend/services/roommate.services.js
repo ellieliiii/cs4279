@@ -21,3 +21,14 @@ exports.addRoommateFormService = async (params, body) => {
     return { status: "ERROR", data: error.message };
   }
 };
+
+exports.getAllRoommateFormsService = async (params, body) => {
+  try {
+    const forms = await mdb.roomies.find({}).toArray();
+    console.log("getAllRoommateForms Success:", forms);
+    return { status: "OK", data: forms };
+  } catch (error) {
+    console.log("getAllRoommateForms Error:", error);
+    return { status: "ERROR", data: error };
+  }
+};

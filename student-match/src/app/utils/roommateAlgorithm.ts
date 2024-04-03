@@ -119,9 +119,9 @@ export default function pairRoommates(roommates: Roommate[]) {
     scores.sort((a, b) => b.score - a.score);
 
     // Keep only the top 3 matches
-    const top5Matches = scores.slice(0, 3);
+    const topMatches = scores.slice(0, 3);
 
     // Add matches to user's data
-    roommate1.matches = top5Matches;
+    roommate1.matches = topMatches;
   }
 }
