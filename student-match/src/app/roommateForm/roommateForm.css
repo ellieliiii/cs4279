@@ -1,12 +1,23 @@
-.roommate h1 {
-    text-align: center;
-    margin: 40px;
-  }
+
   
   /* Adjust the body style as necessary */
-  .roommate {
+  #roommate {
+    text-align: center;
     background-color: #fadaef; /* Baby pink background */
-    color: #ba2c78; /* Dark pink text */
+    color: #ba2c78;/* Dark pink text */
+    font-family: Arial, sans-serif; /* Example font */
+  }
+
+  .roommate_title {
+    background-color: #fadaef;/* Baby pink background */
+    color: #ba2c78;/* Dark pink text */
+    text-align: center;
+    margin: 40px;
+    font-family: Arial, sans-serif; /* Example font */
+  }
+  .roommate_div {
+    background-color: #fadaef;/* Baby pink background */
+    color: #ba2c78;/* Dark pink text */
     font-family: Arial, sans-serif; /* Example font */
   }
   
@@ -15,6 +26,7 @@
     margin: 20px auto;
     padding: 20px;
     background-color: #ffffff;
+    color: #ba2c78;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
@@ -22,16 +34,24 @@
   .roommate_form-field-container {
     margin-bottom: 20px; /* Adds spacing between form fields */
   }
+
+  #roommate ::placeholder {
+    color: #ba2c78;
+    opacity: 0.5; /* Firefox */
+  }
   
   .roommate_label {
     display: block;
     margin-bottom: 5px;
+    color: #ba2c78;
     font-weight: 500;
   }
   
   .roommate_input[type="text"],
   .roommate_input[type="email"],
   .roommate_select {
+    background-color: #fdfaec;
+    color: #ba2c78;
     width: 100%;
     padding: 10px;
     margin-bottom: 10px; /* Adds spacing below each input */

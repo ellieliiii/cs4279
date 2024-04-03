@@ -1,6 +1,8 @@
 "use client";
 import "./roommateForm.css"; // Ensure this path matches your updated CSS file name
 import React, { useState } from "react";
+import styles from "@/app/page.module.css";
+import { useRouter } from "next/navigation";
 
 interface RoommateFormProps {
   onSubmit: (formData: any) => void;
@@ -25,6 +27,8 @@ const RoommateForm: React.FC<RoommateFormProps> = ({ onSubmit }) => {
     locationPreference: "Zeppos", // Default value as an example
   });
 
+  const router = useRouter();
+
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -37,15 +41,36 @@ const RoommateForm: React.FC<RoommateFormProps> = ({ onSubmit }) => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(formData);
+    // onSubmit(formData);
+
+    // Adds roommate form to MongoDB
+    const url = "http://localhost/api/roommate";
+    const data = formData;
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const responseData = await response.json();
+      console.log(responseData); // Handle the response data accordingly
+    } catch (error) {
+      console.error("Error:", error);
+    }
+
+    router.push("/homePage");
   };
 
   return (
-    <body className="roommate">
-      <div>
-        <h1>Roommate Preferences</h1>
+    <body id="roommate">
+      <div className="roommate_div">
+        <h1 className="roommate_title">Roommate Preferences</h1>
         <form onSubmit={handleSubmit} className="roommate_form-container">
           <div className="roommate_form-field-container">
             <label htmlFor="fullName" className="roommate_label">
@@ -93,7 +118,10 @@ const RoommateForm: React.FC<RoommateFormProps> = ({ onSubmit }) => {
           </div>
 
           <div className="roommate_form-field-container">
-            <label htmlFor="sleepSchedulePreferences" className="roommate_label">
+            <label
+              htmlFor="sleepSchedulePreferences"
+              className="roommate_label"
+            >
               Sleep Schedule Preferences
             </label>
             <select
@@ -144,7 +172,7 @@ const RoommateForm: React.FC<RoommateFormProps> = ({ onSubmit }) => {
 
           <div className="roommate_form-field-container">
             <label className="roommate_label">
-              How often do you have overnight guests over?
+              How often do you have overnight guests over
             </label>
             <input
               type="range"
@@ -295,7 +323,9 @@ const RoommateForm: React.FC<RoommateFormProps> = ({ onSubmit }) => {
             >
               <option value="Discuss calmly">Discuss calmly</option>
               <option value="Seek mediation">Seek mediation</option>
-              <option value="Need time to cool off">Need time to cool off</option>
+              <option value="Need time to cool off">
+                Need time to cool off
+              </option>
               <option value="Address immediately">Address immediately</option>
             </select>
           </div>

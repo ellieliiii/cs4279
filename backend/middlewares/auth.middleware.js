@@ -27,8 +27,8 @@ const checkIfAuthenticated = async (req, res, next) => {
       req.body.username = req.body.username || userInfo.name;
       // console.log(userInfo)
       return next();
-    } catch (e) {
-      console.log(e)
+    } catch (error) {
+      console.log(error)
       return res
         .status(401)
         .send({ error: 'You are not authorized to make this request' });

@@ -256,6 +256,34 @@
   color: #fdfaec;
 }
 
+.friend {
+  background-color: #9cdee0; /* Baby pink background */
+  color: #0e7b7e; /* Dark pink text */
+  font-family: Arial, sans-serif; /* Example font */
+}
+
+.friend_button {
+  background-color: #fdfaec; /* Baby pink background */
+  color: #0e7b7e; /* Dark pink text */
+  text-align: center;
+  font-weight: normal;
+  border: 2px solid #0e7b7e;
+  border-radius: 8px;
+  font-size: 90%;
+  padding: 0.5rem;
+}
+
+.roommate_button {
+  background-color: #fdfaec; /* Baby pink background */
+  color: #ba2c78; /* Dark pink text */
+  text-align: center;
+  font-weight: normal;
+  border: 2px solid #ba2c78;
+  border-radius: 8px;
+  font-size: 90%;
+  padding: 0.5rem;
+}
+
 .name {
   color: #325d79;
   text-align: center;
@@ -324,7 +352,7 @@
 /* Tab Two specific styles, ensuring Roboto is used */
 .tabs .tab:nth-of-type(2),
 .tabs .tab:nth-of-type(2) * {
-  font-family: "Roboto", sans-serif;
+  /*font-family: "Roboto", sans-serif;*/
 }
 
 .tabs .tab:nth-of-type(2) button[type="submit"] {
@@ -360,6 +388,7 @@
 }
 .tabs .tab:nth-of-type(5) {
   background: #9cdee0;
+  color: #0e7b7e;
 }
 /* Tab Six */
 #tabsix + label {
@@ -390,8 +419,9 @@ body {
   min-height: 100vh;
   box-sizing: border-box;
   /* padding-top: 10vh; */
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
-    Helvetica, Arial, "Lucida Grande", sans-serif, "Roboto", sans-serif;
+  /*font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",*/
+  /*  Helvetica, Arial, "Lucida Grande", sans-serif, "Roboto", sans-serif;*/
+  font-family: sans-serif;
   font-weight: 300;
   line-height: 1.5;
   /* max-width: 60rem; */

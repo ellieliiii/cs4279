@@ -1,6 +1,7 @@
 "use client";
 import "./friendForm.css"; // Ensure this path matches your updated CSS file name
 import React, { useState } from "react";
+import styles from "@/app/page.module.css";
 
 interface FriendFormProps {
   onSubmit: (formData: any) => void;
@@ -112,9 +113,10 @@ const FriendForm: React.FC<FriendFormProps> = ({ onSubmit }) => {
   ];
 
   return (
-    <body className="friend">
-      <div>
-        <h1>Find Your Match</h1>
+
+    <body id="friend">
+      <div className="friend_div">
+        <h1 className="friend_title">Friend Preferences</h1>
         <form onSubmit={handleSubmit} className="friend_form-container">
           {/* Personal Information Section */}
           <div className="friend_form-field-container">
