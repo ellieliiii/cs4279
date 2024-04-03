@@ -150,7 +150,7 @@ function RoommateHome() {
       <h1>Find a Roommate</h1>
       <Link href="/roommateForm">Fill Out Roommate Preference Form</Link>
       {/* Uncomment button to test matching algorithm*/}
-      {/* <button onClick={handleButtonClick}>Find Matches</button> */}
+      <button onClick={handleButtonClick}>Find Matches</button>
     </div>
   );
 }
