@@ -5,14 +5,7 @@ const mdb = require("../services/mdb.services");
  * @async
  * @param {Object} body - The body of the request that contains user information
  * @param {Object} params - The parameters of the request that contains user information
- * @param {String} body.userId - An UUID that uniquely identifies a user
- * @param {String} body.name - The name of the user
  * @param {String} body.email - The email of the user
- * @param {String} body.phoneNumber - The phone number of the user
- * @param {Array} body.membershipIds - An array of membershipIds that are associated with this profile
- * @param {Array} body.roommates - An array of userIds that are recommended as roommates for this user
- * @param {Array} body.sessionIds - An array of sessionIds that are associated with this profile
- * @param {Object} body.settings - An object of user settings associated with this profile
  * @return {Object} - An object of {status: status, data: data}, where status can be "OK" or "ERROR" and data is the created user item if OK
  */
 exports.addUserService = async (params, body) => {
@@ -150,3 +143,7 @@ exports.deleteUserByIdService = async(params, body) => {
         return { status: "ERROR", data: error };
     }
 }
+
+/*********************************
+ ************ TESTING ************
+ *********************************/
