@@ -262,6 +262,28 @@
   font-family: Arial, sans-serif; /* Example font */
 }
 
+.friend_button {
+  background-color: #fdfaec; /* Baby pink background */
+  color: #0e7b7e; /* Dark pink text */
+  text-align: center;
+  font-weight: normal;
+  border: 2px solid #0e7b7e;
+  border-radius: 8px;
+  font-size: 90%;
+  padding: 0.5rem;
+}
+
+.roommate_button {
+  background-color: #fdfaec; /* Baby pink background */
+  color: #ba2c78; /* Dark pink text */
+  text-align: center;
+  font-weight: normal;
+  border: 2px solid #ba2c78;
+  border-radius: 8px;
+  font-size: 90%;
+  padding: 0.5rem;
+}
+
 .name {
   color: #325d79;
   text-align: center;

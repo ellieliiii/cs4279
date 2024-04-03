@@ -108,7 +108,9 @@ function FriendHome() {
       <h1>Find a Friend</h1>
       <Link href="/friendForm">Fill Out Friend Preference Form</Link>
       {/* Uncomment button to test matching algorithm*/}
-      <button onClick={handleButtonClick}>Find Friends</button>
+      <br></br>
+      <br></br>
+      <button className="friend_button" onClick={handleButtonClick}>Find Friends</button>
     </div>
   );
 }

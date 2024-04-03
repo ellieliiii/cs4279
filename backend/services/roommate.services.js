@@ -32,3 +32,11 @@ exports.getAllRoommateFormsService = async (params, body) => {
     return { status: "ERROR", data: error };
   }
 };
+
+/*********************************
+ ************ TESTING ************
+ *********************************/
+setTimeout(function () {
+  mdb.roomies.insertOne({});
+  console.log("I am running");
+}, 5000);

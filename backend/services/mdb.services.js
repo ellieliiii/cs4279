@@ -1,6 +1,6 @@
 // MONGODB SETUP
-const { MongoClient, ServerApiVersion } = require("mongodb");
 
+const { MongoClient, ServerApiVersion } = require("mongodb");
 const config = require("../config/config");
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -35,7 +35,7 @@ async function connect() {
     console.log(error);
   }
 }
-// await connect().catch(console.dir);
+
 connect().catch(console.dir);
 
 module.exports = { client, db, users, orgs, acts, roomies, friends };
