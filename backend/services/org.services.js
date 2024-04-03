@@ -201,3 +201,7 @@ exports.removeMemberOrgService = async (params, body) => {
         return { status: "ERROR", data: result.data }
     }
 }
+
+/*********************************
+ ************ TESTING ************
+ *********************************/

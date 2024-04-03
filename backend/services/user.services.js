@@ -1,5 +1,5 @@
 const mdb = require("../services/mdb.services");
-
+console.log("hey");
 /**
  * Add a new user to the Users collection in MongoDB
  * @async
@@ -147,3 +147,4 @@ exports.deleteUserByIdService = async(params, body) => {
 /*********************************
  ************ TESTING ************
  *********************************/
+console.log("Hi");
