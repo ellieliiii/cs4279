@@ -2,20 +2,19 @@
 
 import React, { useState } from "react";
 import "./loginForm.css";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 // Correct import for Firebase v9+
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { auth } from "../../../firebase/firebase"; // Adjust the path as necessary
+import { auth } from "../firebase/firebase"; // Adjust the path as necessary
 
-interface LoginFormProps {
-  onSubmit: (data: { email: string; password: string }) => void;
-}
+const LoginForm: React.FC = () => {
 
-const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -28,7 +27,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSubmit(formData);
+    global?.window?.localStorage?.setItem("user", JSON.stringify(formData)); 
+    router.push("/homePage");
   };
 
   return (

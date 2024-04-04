@@ -16,7 +16,6 @@ exports.addOrgService = async (params, body) => {
     const orgId = randomUUID();
     try {
         const result = await mdb.orgs.insertOne({
-            _id: false,
             orgId: orgId,
             ...body,
         });        
