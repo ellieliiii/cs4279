@@ -17,7 +17,6 @@ exports.addUserService = async (params, body) => {
         }
 
         const result = await mdb.users.insertOne({
-            _id: false, 
             ...body
         });
 

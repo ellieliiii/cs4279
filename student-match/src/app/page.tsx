@@ -10,15 +10,10 @@ import { useRouter } from "next/navigation";
 
 export default function Home() {
   const router = useRouter();
-  const handleSubmit = (formData: { email: string; password: string }) => {
-    // Send data to backend here
-    console.log("Form submitted with data:", formData);
-    router.push("/homePage");
-  };
   return (
     <main className={styles.main}>
       <div className={styles.websiteTitle}>StudentMatch</div>
-      <LoginForm onSubmit={handleSubmit} />
+      <LoginForm />
       <Link href="/signUpForm" className={styles.link}>
         Don't have an account? Sign Up
       </Link>

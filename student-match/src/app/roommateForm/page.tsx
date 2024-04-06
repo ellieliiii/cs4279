@@ -4,11 +4,7 @@ import React, { useState } from "react";
 import styles from "@/app/page.module.css";
 import { useRouter } from "next/navigation";
 
-interface RoommateFormProps {
-  onSubmit: (formData: any) => void;
-}
-
-const RoommateForm: React.FC<RoommateFormProps> = ({ onSubmit }) => {
+const RoommateForm: React.FC = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     vanderbiltEmail: "",

@@ -10,10 +10,22 @@ import Link from "next/link";
 import EditProfileForm from "./editProfileForm";
 
 export default function Home() {
-  const handleSubmit = (formData) => {
+
+  const handleSubmit = (formData: Object) => {
     console.log(formData);
     // Send form data to backend here
   };
+
+  const getUser = () => {
+    const user = global?.window?.localStorage?.getItem("user");
+    if (user) {
+      return JSON.parse(user);
+    } else {
+      return { name: "", email: "", phoneNumber: "" };
+    }
+  }
+
+  const user = getUser();
 
   return (
     <body className="homepage_body">
@@ -59,7 +71,7 @@ export default function Home() {
           <label htmlFor="tabsix">Profile</label>
           <div className="tab">
             <h1>Edit Profile</h1>
-            <EditProfileForm onSubmit={handleSubmit} />
+            <EditProfileForm name={user.name} email={user.email} phoneNumber={user.phoneNumber} onSubmit={handleSubmit} />
           </div>
         </div>
       </div>

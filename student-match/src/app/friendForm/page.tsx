@@ -3,11 +3,7 @@ import "./friendForm.css"; // Ensure this path matches your updated CSS file nam
 import React, { useState } from "react";
 import styles from "@/app/page.module.css";
 
-interface FriendFormProps {
-  onSubmit: (formData: any) => void;
-}
-
-const FriendForm: React.FC<FriendFormProps> = ({ onSubmit }) => {
+const FriendForm: React.FC = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -21,7 +17,7 @@ const FriendForm: React.FC<FriendFormProps> = ({ onSubmit }) => {
 
   const handleMultiSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, options } = e.target;
-    const value = [];
+    let value: string[] = [];
     for (let i = 0, l = options.length; i < l; i++) {
       if (options[i].selected) {
         value.push(options[i].value);
@@ -47,7 +43,7 @@ const FriendForm: React.FC<FriendFormProps> = ({ onSubmit }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(formData);
+    // use setFormData to update the state with the form data given
   };
 
   // Hobbies options for the multi-select
