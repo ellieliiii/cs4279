@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import "./editProfileForm.css";
-import * as f from '../../../../backend/index.js'
 interface EditProfileFormProps {
   name: string;
   email: string;
