@@ -9,7 +9,7 @@ RootRouter.get("/", (req, res) => {
   res.send("Student Match Backend CICD update");
 });
 
-// add more routes here
+//  add more routes here
 RootRouter.use('/user', userRouter);
 RootRouter.use('/org', orgRouter);
 RootRouter.use("/roommate", roommateRouter);
