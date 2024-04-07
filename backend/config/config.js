@@ -1,8 +1,5 @@
 // var admin = require("firebase-admin");
 require("dotenv").config();
-const {uri} = require("../config.js")
-console.log(uri);
-console.log(process.env.MONGODB_URI);
 
 // put firebase admin sdk json file here
 // var serviceAccount = require("");
@@ -12,7 +9,7 @@ console.log(process.env.MONGODB_URI);
 // });
 
 module.exports = {
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 80,
     // Replace with correct mongodb uri
     mongoURI: process.env.MONGODB_URI,
     // admin: admin
