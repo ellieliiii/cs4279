@@ -9,7 +9,7 @@ require("dotenv").config();
 // });
 
 module.exports = {
-    port: process.env.PORT || 80,
+    port: process.env.PORT || 3000,
     // Replace with correct mongodb uri
     mongoURI: process.env.MONGODB_URI,
     // admin: admin
