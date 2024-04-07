@@ -3,10 +3,18 @@ name: CI
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - 'student-match/**'
+      - '.vscode/**'
   pull_request:
     branches: [ main ]
 
   workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+    working-directory: ./backend
 
 jobs:
   build:
@@ -22,15 +30,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: npm run start
+      - run: npm i
       # - run: npm run test
 
       - name: rsync deployments
         uses: burnett01/rsync-deployments@5.1
         with:
           switches: -avzr --delete
-          path: ./*
-          remote_path: /var/www/cs4279-backend/
-          remote_host: ubuntu@ec2-3-140-189-217.us-east-2.compute.amazonaws.com
+          path: ./backend
+          remote_path: /home/ubuntu/projects/cs4279-backend
+          remote_host: ec2-3-140-189-217.us-east-2.compute.amazonaws.com
           remote_user: ubuntu
           remote_key: "${{ secrets.SSH_PRIVATE_KEY }}"
