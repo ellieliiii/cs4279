@@ -38,7 +38,7 @@ jobs:
         with:
           switches: -avzr --delete
           path: ./backend
-          remote_path: /projects/cs4279-backend
+          remote_path: /home/ubuntu/projects/cs4279-backend
           remote_host: ec2-3-140-189-217.us-east-2.compute.amazonaws.com
           remote_user: ubuntu
           remote_key: "${{ secrets.SSH_PRIVATE_KEY }}"
