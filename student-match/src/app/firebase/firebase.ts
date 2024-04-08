@@ -14,6 +14,7 @@ const clientCredentials = {
     measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID
 };
 
+// Initialize Firebase
 let app;
 if (firebase.apps.length == 0) {
   app = firebase.initializeApp(clientCredentials);
