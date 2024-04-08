@@ -25,7 +25,7 @@ const SignUpForm: React.FC = () => {
 
   const createUserRequest = async (data: Object) => {
     // Adds user to MongoDB
-    const url = "http://localhost/api/user";
+    const url = "http://ec2-3-140-189-217.us-east-2.compute.amazonaws.com/api/user";
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -43,6 +43,7 @@ const SignUpForm: React.FC = () => {
     return false;
   };
 
+  // TODO: add warnings for invalid email/password, if email exists, etc.
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Use Firebase Auth to create a new user
@@ -54,12 +55,14 @@ const SignUpForm: React.FC = () => {
           email: formData.email,
           phoneNumber: formData.phoneNumber,
         };
-        // call createUserRequest function with formData object
         createUserRequest(data)
           .then((res) => {
             if (res) {
               router.push("/homePage");
             }
+          })
+          .catch((error) => {
+            console.error("Error creating user:", error);
           });
       })
       .catch((error) => {

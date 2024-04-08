@@ -4,11 +4,7 @@ import React, { useState } from "react";
 import "./loginForm.css";
 import { useRouter } from "next/navigation";
 // Correct import for Firebase v9+
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebase"; // Adjust the path as necessary
 
 const LoginForm: React.FC = () => {
@@ -25,10 +21,42 @@ const LoginForm: React.FC = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const getUserRequest = async (userId: string) => {
+    // Get user from MongoDB
+    const url = "http://ec2-3-140-189-217.us-east-2.compute.amazonaws.com/api/user/id/";
+    const response = await fetch(url + userId, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.status == 200) {
+      const data = await response.json();
+      // data is user data. Store in some state to indicate which user is currently logged in
+      global?.window?.localStorage?.setItem("user", JSON.stringify(data));
+      return true;
+    }
+    return false;
+  }; 
+
+  // TODO: add warnings for invalid email/password, invalid auth, etc.
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    global?.window?.localStorage?.setItem("user", JSON.stringify(formData)); 
-    router.push("/homePage");
+    signInWithEmailAndPassword(auth, formData.email, formData.password)
+      .then((res) => {
+        getUserRequest(res.user.uid)
+          .then((res) => {
+            if (res) {
+              router.push("/homePage");
+            }
+          })
+          .catch((error) => {
+            console.log("Error getting user:", error);
+          });
+      })
+      .catch((error) => {
+        console.log(error)
+      });
   };
 
   return (
