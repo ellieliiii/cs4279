@@ -25,7 +25,7 @@ const SignUpForm: React.FC = () => {
 
   const createUserRequest = async (data: Object) => {
     // Adds user to MongoDB
-    const url = "http://ec2-3-140-189-217.us-east-2.compute.amazonaws.com/api/user";
+    const url = "https://3-140-189-217.nip.io/api/user";
     const response = await fetch(url, {
       method: "POST",
       headers: {

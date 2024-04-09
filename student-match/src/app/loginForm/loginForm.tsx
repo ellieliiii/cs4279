@@ -23,7 +23,7 @@ const LoginForm: React.FC = () => {
 
   const getUserRequest = async (userId: string) => {
     // Get user from MongoDB
-    const url = "http://ec2-3-140-189-217.us-east-2.compute.amazonaws.com/api/user/id/";
+    const url = "https://3-140-189-217.nip.io/api/user/id/";
     const response = await fetch(url + userId, {
       method: "GET",
       headers: {
