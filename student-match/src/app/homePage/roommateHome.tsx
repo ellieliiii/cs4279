@@ -166,11 +166,17 @@ function RoommateHome() {
   return (
     <div>
       <h1>Find a Roommate</h1>
-      <Link href="/roommateForm">Fill Out Roommate Preference Form</Link>
-      {/* Uncomment button to test matching algorithm*/}
+      {/* Remove the "Fill Out Roommate Preference Form" link */}
+      {/* <Link href="/roommateForm">Fill Out Roommate Preference Form</Link> */}
       <br></br>
       <br></br>
-      <button className="roommate_button" onClick={handleButtonClick}>Find Matches</button>
+      {/* Update the "Find Matches" button to navigate to the "/roommateForm" page */}
+      <button
+        className="roommate_button"
+        onClick={() => (window.location.href = "/roommateForm")}
+      >
+        Find Matches
+      </button>
     </div>
   );
 }
