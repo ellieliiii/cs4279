@@ -89,6 +89,6 @@ setTimeout(function() { // third set of tests to run (user, org, roommate)
     'conflictResolution': "Need time to cool off",
     'locationPreference': "McTyeire"
   }
-  let room = addRoommateFormService({}, roomForm); console.log("Add roommate form: ", room);
+  //let room = addRoommateFormService({}, roomForm); console.log("Add roommate form: ", room);
   //console.log("ALL roommates: ", getAllRoommateFormsService());
 }, 15000);
