@@ -349,11 +349,11 @@ removeMemberOrgService = async (params, body) => {
         'tags': ["addition", "subtraction"],
         'membershipId': []
     }
-    console.log(getAllOrgsService());
-    //let org = addUserService(body1, params1); console.log("Add User: ", user);
-    //let org_no = addUserService(body1, params1); console.log("Do not add existing user: ", user_no);
-    //let findOrg = getUserByIdService(body1, params1); console.log("Find added user", findUser);
-    //let updateOrg = updateUserByIdService(body2, params1); console.log("Update user: ", updateUser);
-    //let deleteOrg = deleteUserByIdService(body2, params1); console.log("Delete user: ", deleteUser);
+    //console.log(getAllOrgsService());
+    //let org = addUserService(body1, params1); console.log("Add org: ", org);
+    //let org_no = addUserService(body1, params1); console.log("Do not add existing org: ", org_no);
+    //let findOrg = getUserByIdService(body1, params1); console.log("Find added org", findOrg);
+    //let updateOrg = updateUserByIdService(body2, params1); console.log("Update org: ", updateOrg);
+    let deleteOrg = deleteUserByIdService(body2, params1); console.log("Delete org: ", deleteOrg);
 
   }, 10000);
