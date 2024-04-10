@@ -105,12 +105,18 @@ function FriendHome() {
   // Direct navigation using standard anchor tag
   return (
     <div>
-      <h1>Find a Friend</h1>
-      <Link href="/friendForm">Fill Out Friend Preference Form</Link>
-      {/* Uncomment button to test matching algorithm*/}
+      <h1>Find a Roommate</h1>
+      {/* Remove the "Fill Out Roommate Preference Form" link */}
+      {/* <Link href="/roommateForm">Fill Out Roommate Preference Form</Link> */}
       <br></br>
       <br></br>
-      <button className="friend_button" onClick={handleButtonClick}>Find Friends</button>
+      {/* Update the "Find Matches" button to navigate to the "/roommateForm" page */}
+      <button
+        className="friend_button"
+        onClick={() => (window.location.href = "/friendForm")}
+      >
+        Find Friends
+      </button>
     </div>
   );
 }

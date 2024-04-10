@@ -179,8 +179,8 @@ function RoommateHome() {
   return (
     <div>
       <h1>Find a Roommate</h1>
-      <Link href="/roommateForm">Fill Out Roommate Preference Form</Link>
-      {/* Uncomment button to test matching algorithm*/}
+      {/* Remove the "Fill Out Roommate Preference Form" link */}
+      {/* <Link href="/roommateForm">Fill Out Roommate Preference Form</Link> */}
       <br></br>
       <br></br>
       <button className="roommate_button" onClick={handleButtonClick}>
