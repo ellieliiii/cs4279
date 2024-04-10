@@ -146,6 +146,27 @@ exports.deleteUserByIdService = async(params, body) => {
 /*********************************
  ************ TESTING ************
  *********************************/
- setTimeout(function() { // first set of tests to run (user, org, roommate)
+setTimeout(function() { // first set of tests to run (user, org, roommate)
     console.log("I am user testing, I am running");
+    let body1 = {
+        'name': "Martin",
+        'email': "martin@geico.com",
+        'phoneNumber': "911"
+    }
+    let params1 = {
+        'userId': 102930
+    }
+    let body2 = {
+        'name': "NotaName",
+        'email': "not@notemail.com",
+        'phoneNumber': "0"
+    }
+    let params2 = {
+        'userId': 10000000
+    }
+    let user = addUserService(body1, params1); console.log("Add User: ", user);
+    //let user_no = addUserService(body1, params1); console.log("Do not add existing user: ", user_no);
+    //let findUser = getUserByIdService(body1, params1); console.log("Find added user", findUser);
+    //let updateUser = updateUserByIdService(body2, params1); console.log("Update user: ", updateUser);
+    //let deleteUser = deleteUserByIdService(body2, params1); console.log("Delete user: ", deleteUser);
   }, 5000);
