@@ -354,6 +354,6 @@ removeMemberOrgService = async (params, body) => {
     //let org_no = addUserService(body1, params1); console.log("Do not add existing org: ", org_no);
     //let findOrg = getUserByIdService(body1, params1); console.log("Find added org", findOrg);
     //let updateOrg = updateUserByIdService(body2, params1); console.log("Update org: ", updateOrg);
-    let deleteOrg = deleteUserByIdService(body2, params1); console.log("Delete org: ", deleteOrg);
+    //let deleteOrg = deleteUserByIdService(body2, params1); console.log("Delete org: ", deleteOrg);
 
   }, 10000);
