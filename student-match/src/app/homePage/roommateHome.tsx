@@ -183,6 +183,13 @@ function RoommateHome() {
       {/* <Link href="/roommateForm">Fill Out Roommate Preference Form</Link> */}
       <br></br>
       <br></br>
+      <button
+        className="roommate_button"
+        onClick={() => (window.location.href = "/roommateForm")}
+      >
+        Fill Out Roommate Form
+      </button>
+
       <button className="roommate_button" onClick={handleButtonClick}>
         Find Matches
       </button>
