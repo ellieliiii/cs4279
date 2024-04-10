@@ -1,8 +1,11 @@
 "use client";
+import { useState } from "react";
 import Link from "../../../node_modules/next/link";
 import pairRoommates from "../utils/roommateAlgorithm";
 
 function RoommateHome() {
+  const [matchedRoommates, setMatchedRoommates] = useState<any[]>([]);
+
   // Temporary button for testing algorithm
   const handleButtonClick = async () => {
     const roommates = [
@@ -144,7 +147,7 @@ function RoommateHome() {
     // console.log(roommates[6].matches);
 
     // Gets all roommate forms from MongoDB
-    const url = "http://localhost/api/roommate";
+    const url = "https://3-140-189-217.nip.io/api/roommate";
 
     try {
       const response = await fetch(url, {
@@ -156,7 +159,17 @@ function RoommateHome() {
 
       const responseData = await response.json();
       console.log(responseData); // Handle the response data accordingly
-      pairRoommates(responseData);
+
+      const matches = pairRoommates(responseData);
+      const currentUser = global?.window?.localStorage?.getItem("user");
+
+      if (currentUser != null) {
+        const userEmail = JSON.parse(currentUser).email;
+        const userMatches = matches.get(userEmail);
+        console.log(userMatches);
+        setMatchedRoommates(userMatches);
+      }
+      console.log(currentUser);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -170,7 +183,25 @@ function RoommateHome() {
       {/* Uncomment button to test matching algorithm*/}
       <br></br>
       <br></br>
-      <button className="roommate_button" onClick={handleButtonClick}>Find Matches</button>
+      <button className="roommate_button" onClick={handleButtonClick}>
+        Find Matches
+      </button>
+
+      {/* Display matched roommates */}
+      <div>
+        <h2>Matched Roommates:</h2>
+        {matchedRoommates.length === 0 && <p>No matches found</p>}
+        {matchedRoommates.length > 0 && (
+          <ul>
+            {matchedRoommates.map((match, index) => (
+              <li key={index}>
+                <p>Name: {match.roommate.fullName}</p>
+                <p>Email: {match.roommate.vanderbiltEmail}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }

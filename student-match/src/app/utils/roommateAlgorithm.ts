@@ -101,6 +101,7 @@ function isWithinRange(value1: number, value2: number, range: number) {
 }
 
 export default function pairRoommates(roommates: Roommate[]) {
+  let matches = new Map();
   for (let i = 0; i < roommates.length; i++) {
     const roommate1 = roommates[i];
     const scores = [];
@@ -123,5 +124,9 @@ export default function pairRoommates(roommates: Roommate[]) {
 
     // Add matches to user's data
     roommate1.matches = topMatches;
+
+    matches.set(roommate1.vanderbiltEmail, topMatches);
   }
+
+  return matches;
 }

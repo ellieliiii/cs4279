@@ -42,7 +42,7 @@ const RoommateForm: React.FC = () => {
     // onSubmit(formData);
 
     // Adds roommate form to MongoDB
-    const url = "http://localhost/api/roommate";
+    const url = "https://3-140-189-217.nip.io/api/roommate";
     const data = formData;
 
     try {
