@@ -161,4 +161,4 @@ setTimeout(function() { // first set of tests to run (user, org, roommate)
     //let findUser = exports.getUserByIdService(params1, {}); console.log("Find added user", findUser);
     //let updateUser = exports.updateUserByIdService(params1, body2); console.log("Update user: ", updateUser);
     //let deleteUser = exports.deleteUserByIdService(params1, body2); console.log("Delete user: ", deleteUser);
-  }, 5000);
+  }, 2500);

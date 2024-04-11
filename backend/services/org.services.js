@@ -227,10 +227,10 @@ exports.removeMemberOrgService = async (params, body) => {
         'membershipId': []
     }
     //console.log(getAllOrgsService());
-    //let org = exports.addOrgService({'orgId': "192038"}, body2); console.log("Add org: ", org);
+    //let org = exports.addOrgService(params1, body1); console.log("Add org: ", org);
     //let org_no = exports.addOrgService(params1, body1); console.log("Do not add existing org: ", org_no);
     //let findOrg = exports.getOrgByIdService(params1, {}); console.log("Find added org", findOrg);
     //let updateOrg = exports.updateOrgService(params1, body2); console.log("Update org: ", updateOrg);
     //let deleteOrg = exports.deleteOrgService(params1, body2); console.log("Delete org: ", deleteOrg);
 
-  }, 10000);
+  }, 5000);

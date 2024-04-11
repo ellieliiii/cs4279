@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAllOrgs, getOrgByid, createOrg, updateOrg } = require('../controllers/org.controller');
+const { getAllOrgs, getOrgById, createOrg, updateOrg } = require('../controllers/org.controller');
 const orgRouter = express.Router();
 
 // CRUD operations for user
@@ -7,7 +7,7 @@ const orgRouter = express.Router();
 // orgRouter.get('/me', getAllGroups);
 orgRouter.get('/', getAllOrgs);
 
-orgRouter.get('/id/:orgId', getOrgByid);
+orgRouter.get('/id/:orgId', getOrgById);
 
 // orgRouter.post('/', checkIfAuthenticated, createOrg); // TODO: need owner
 orgRouter.post('/', createOrg);

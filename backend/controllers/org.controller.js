@@ -13,7 +13,7 @@ const getAllOrgs = async (req, res) => {
     }
 }
 
-const getOrgByid = async (req, res) => {
+const getOrgById = async (req, res) => {
     try {
         const org = await getOrgByIdService(req.params, req.body);
         if (org.status == "OK") {
@@ -59,7 +59,7 @@ const updateOrg = async (req, res) => {
 
 module.exports = {
     getAllOrgs,
-    getOrgByid,
+    getOrgById,
     createOrg,
     updateOrg
 };
