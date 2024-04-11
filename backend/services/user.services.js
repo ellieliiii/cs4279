@@ -100,17 +100,11 @@ exports.updateUserByIdService = async(params, body) => {
 
     let query = {
         'userId': params.userId,
-        'name': body.name || user.data.name,
-        'email': body.email || user.data.email,
-        'phoneNumber': body.phoneNumber || user.data.phoneNumber,
-        'membershipIds': body.membershipIds || user.data.membershipIds,
-        'roommates': body.roommates || user.data.roommates,
-        'sessionIds': body.sessionIds || user.data.sessionIds,
-        'settings': body.settings || user.data.settings
+        ...body
     }
     
     try {
-        const result = await mdb.users.updateOne({ userId: user.userId }, { $set: query });
+        const result = await mdb.users.updateOne({ userId: params.userId }, { $set: query });
         console.log("updateUserByIdService Success:", result);
         return { status: "OK", data: query };
     } catch (error) {
@@ -146,114 +140,25 @@ exports.deleteUserByIdService = async(params, body) => {
 /*********************************
  ************ TESTING ************
  *********************************/
-
-/* RECOPIED FUNCTUIONS */
-addUserService = async (params, body) => {
-    try {
-        const user = await mdb.users.findOne({ email: body.email });
-        if (user) {
-            console.log("addUserService Error: User already exists");
-            return { status: "ERROR", data: "User already exists" };
-        }
-
-        const result = await mdb.users.insertOne({
-            ...body
-        });
-
-        console.log("addUserService Success:", result);
-        return { status: "OK", data: body };
-    } catch (error) {
-        console.log("addUserService Error:", error);
-        return { status: "ERROR", data: error };
-    }
-}
-getUserByIdService = async (params, body) => {
-    try {
-        const user = await mdb.users.findOne({ userId: params.userId });
-        if (!user) {
-            console.log("getUserByIdService Error: User not found");
-            return { status: "ERROR", data: "User not found" };
-        }
-        console.log("getUserByIdService Success:", user);
-        return { status: "OK", data: user };
-    } catch (error) {
-        console.log("getUserByIdService Error:", error);
-        return { status: "ERROR", data: error };
-    }
-}
-updateUserByIdService = async(params, body) => {
-    let user = {}; 
-    console.log("updateUserByIdService - calling getUserByIdService");
-    try {
-        user = await exports.getUserByIdService(params, body);
-    } catch (error) {
-        console.log("updateUserByIdService Error:", error);
-        return { status: "ERROR", data: error };
-    }
-    console.log("updateUserByIdService", user)
-    if (user.status != "OK"){
-        return {status: "ERROR", data: user.data};
-    }
-    if (!user.data){
-        return {status: "ERROR", data: "user does not exist"};
-    }
-
-    let query = {
-        'userId': params.userId,
-        'name': body.name || user.data.name,
-        'email': body.email || user.data.email,
-        'phoneNumber': body.phoneNumber || user.data.phoneNumber,
-        'membershipIds': body.membershipIds || user.data.membershipIds,
-        'roommates': body.roommates || user.data.roommates,
-        'sessionIds': body.sessionIds || user.data.sessionIds,
-        'settings': body.settings || user.data.settings
-    }
-    
-    try {
-        const result = await mdb.users.updateOne({ userId: user.userId }, { $set: query });
-        console.log("updateUserByIdService Success:", result);
-        return { status: "OK", data: query };
-    } catch (error) {
-        console.log("updateUserByIdService Error:", error);
-        return { status: "ERROR", data: error };
-    }
-}
-deleteUserByIdService = async(params, body) => {
-    try {
-        const user = await mdb.users.findOne({ userId : params.userId });
-        if (!user) {
-            console.log("deleteUserByIdService Error: User not found");
-            return { status: "ERROR", data: "User not found" };
-        }
-        const result = await mdb.users.deleteOne({ userId : params.userId });
-        console.log("deleteUserByIdService Success:", result);
-        return { status: "OK", data: user };
-    } catch (error) {
-        console.log("deleteUserByIdService Error:", error);
-        return { status: "ERROR", data: error };
-    }
-}
-
-/* TESTING */
 setTimeout(function() { // first set of tests to run (user, org, roommate)
     console.log("I am user testing, I am running");
     let body1 = {
         'name': "Martin",
         'email': "martin@geico.com",
         'phoneNumber': "911",
-        'userId': 102930
+        'userId': "102930"
     }
     let params1 = {
-        'userId': 102930
+        'userId': "102930"
     }
     let body2 = {
         'name': "NotaName",
         'email': "not@notemail.com",
         'phoneNumber': "0"
     }
-    //let user = addUserService(params1, body1); console.log("Add User: ", user);
-    //let user_no = addUserService(params1, body1); console.log("Do not add existing user: ", user_no);
-    //let findUser = getUserByIdService(params1, body1); console.log("Find added user", findUser);
-    //let updateUser = updateUserByIdService(params1, body2); console.log("Update user: ", updateUser);
-    //let deleteUser = deleteUserByIdService(params1, body2); console.log("Delete user: ", deleteUser);
+    //let user = exports.addUserService(params1, body1); console.log("Add User: ", user);
+    //let user_no = exports.addUserService(params1, body1); console.log("Do not add existing user: ", user_no);
+    //let findUser = exports.getUserByIdService(params1, {}); console.log("Find added user", findUser);
+    //let updateUser = exports.updateUserByIdService(params1, body2); console.log("Update user: ", updateUser);
+    //let deleteUser = exports.deleteUserByIdService(params1, body2); console.log("Delete user: ", deleteUser);
   }, 5000);
