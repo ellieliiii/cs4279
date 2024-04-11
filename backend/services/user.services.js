@@ -240,7 +240,8 @@ setTimeout(function() { // first set of tests to run (user, org, roommate)
     let body1 = {
         'name': "Martin",
         'email': "martin@geico.com",
-        'phoneNumber': "911"
+        'phoneNumber': "911",
+        'userId': 102930
     }
     let params1 = {
         'userId': 102930
@@ -250,9 +251,9 @@ setTimeout(function() { // first set of tests to run (user, org, roommate)
         'email': "not@notemail.com",
         'phoneNumber': "0"
     }
-    //let user = addUserService(body1, params1); console.log("Add User: ", user);
-    //let user_no = addUserService(body1, params1); console.log("Do not add existing user: ", user_no);
-    //let findUser = getUserByIdService(body1, params1); console.log("Find added user", findUser);
-    //let updateUser = updateUserByIdService(body2, params1); console.log("Update user: ", updateUser);
-    //let deleteUser = deleteUserByIdService(body2, params1); console.log("Delete user: ", deleteUser);
+    //let user = addUserService(params1, body1); console.log("Add User: ", user);
+    //let user_no = addUserService(params1, body1); console.log("Do not add existing user: ", user_no);
+    //let findUser = getUserByIdService(params1, body1); console.log("Find added user", findUser);
+    //let updateUser = updateUserByIdService(params1, body2); console.log("Update user: ", updateUser);
+    //let deleteUser = deleteUserByIdService(params1, body2); console.log("Delete user: ", deleteUser);
   }, 5000);
