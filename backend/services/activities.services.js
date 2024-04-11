@@ -5,10 +5,10 @@ const { randomUUID } = require('crypto');
  * Create a new act
  * @async
  * @param {Object} body - The body of the request that contains act information
- * @param {String} body.name - The title of the act
- * @param {String} body.description - The description of the act
- * @param {Array} body.tags - An array of tags that are associated with this act
- * @param {Array} body.membershipIds - An array of membershipIds to show users that are in this act
+ * @param {String} body.name - The name of the act
+ * @param {String} body.email - The email contact for the act
+ * @param {String} body.date - The date of the act
+ * @param {String} body.organizer - The organizer of the act
  * @param {String} body.userId - A UUID that identifies the user that created the act
  * @return {Object} - An object of {status: status, data: data}, where status can be "OK" or "ERROR" and data is the created act item if OK
  */
@@ -74,18 +74,11 @@ exports.getAllActsService = async (params, body) => {
     }
 }
 
-
-
 /**
  * Update an act by actId
  * @async
  * @param {Object} body - The body of the request that contains act information
  * @param {Object} params - The parameters of the request that contains act information
- * @param {String} params.actId - An UUID that uniquely identifies a act
- * @param {String} body.name - The title of the act
- * @param {String} body.description - The description of the act
- * @param {Array} body.tags - An array of tags that are associated with this act
- * @param {Array} body.membershipIds - An array of membershipIds to show users that are in this act
  * @return {Object} - An object of {status: status, data: data}, where status can be "OK" or "ERROR" and data is the updated act item if OK
  */
 exports.updateActService = async (params, body) => {
@@ -120,8 +113,6 @@ exports.updateActService = async (params, body) => {
     }
 }
 
-
-
 /**
  * Delete a act by actId
  * @async
@@ -153,7 +144,6 @@ exports.deleteActService = async (params) => {
  * @param {Object} body - The body of the request that contains act information
  * @param {Object} params - The parameters of the request that contains act information
  * @param {String} params.actId - An UUID that uniquely identifies a act
- * @param {String} body.membershipId - An UUID that uniquely identifies the membership item
  * @return {Object} - An object of {status: status, data: data}, where status can be "OK" or "ERROR" and data is the updated act item if OK
  */
 exports.addMemberActService = async (params, body) => {
@@ -180,8 +170,7 @@ exports.addMemberActService = async (params, body) => {
  * @async
  * @param {Object} body - The body of the request that contains act information
  * @param {Object} params - The parameters of the request that contains act information
- * @param {String} params.actId - An UUID that uniquely identifies a act
- * @param {String} body.membershipId - An UUID that uniquely identifies the membership item that is to be removed
+ * @param {String} params.actId - An UUID that uniquely identifies an act
  * @return {Object} - An object of {status: status, data: data}, where status can be "OK" or "ERROR" and data is the updated act item if OK
  */
 exports.removeMemberActService = async (params, body) => {
@@ -206,7 +195,7 @@ exports.removeMemberActService = async (params, body) => {
 /*********************************
  ************ TESTING ************
  *********************************/
- setTimeout(function() { // second set of tests to run (user, act, roommate)
+ setTimeout(function() { // fourth set of tests to run (user, org, roommate, acts, friends)
     console.log("I am activity testing, I am running");
     let body1 = {
         'name': "Rites of Spring",

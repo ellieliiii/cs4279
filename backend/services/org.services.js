@@ -74,18 +74,11 @@ exports.getAllOrgsService = async (params, body) => {
     }
 }
 
-
-
 /**
  * Update an org by orgId
  * @async
  * @param {Object} body - The body of the request that contains org information
  * @param {Object} params - The parameters of the request that contains org information
- * @param {String} params.orgId - An UUID that uniquely identifies a org
- * @param {String} body.name - The title of the org
- * @param {String} body.description - The description of the org
- * @param {Array} body.tags - An array of tags that are associated with this org
- * @param {Array} body.membershipIds - An array of membershipIds to show users that are in this org
  * @return {Object} - An object of {status: status, data: data}, where status can be "OK" or "ERROR" and data is the updated org item if OK
  */
 exports.updateOrgService = async (params, body) => {
@@ -119,8 +112,6 @@ exports.updateOrgService = async (params, body) => {
         return { status: "ERROR", data: error };
     }
 }
-
-
 
 /**
  * Delete a org by orgId
@@ -206,7 +197,7 @@ exports.removeMemberOrgService = async (params, body) => {
 /*********************************
  ************ TESTING ************
  *********************************/
- setTimeout(function() { // second set of tests to run (user, org, roommate)
+ setTimeout(function() { // second set of tests to run (user, org, roommate, acts, friends)
     console.log("I am org testing, I am running");
     let body1 = {
         'name': "Geico",

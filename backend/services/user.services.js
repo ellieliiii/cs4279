@@ -76,9 +76,6 @@ exports.getAllUsersService = async (params, body) => {
  * @param {Object} body - The body of the request that contains user information
  * @param {Object} params - The parameters of the request that contains user information 
  * @param {String} params.userId - An UUID that uniquely identifies a user
- * @param {String} body.name - The name of the user
- * @param {String} body.email - The email of the user
- * @param {String} body.phoneNumber - The phone number of the user
  * @return {Object} - An object of {status: status, data: data}, where status can be "OK" or "ERROR" and data is the updated user item if OK
  */
 exports.updateUserByIdService = async(params, body) => {
@@ -140,7 +137,7 @@ exports.deleteUserByIdService = async(params, body) => {
 /*********************************
  ************ TESTING ************
  *********************************/
-setTimeout(function() { // first set of tests to run (user, org, roommate)
+setTimeout(function() { // first set of tests to run (user, org, roommate, acts, friends)
     console.log("I am user testing, I am running");
     let body1 = {
         'name': "Martin",
