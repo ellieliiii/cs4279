@@ -224,7 +224,7 @@ exports.removeMemberActService = async (params, body) => {
         'organizer': "Change++"
     }
     //console.log(getAllActsService());
-    let act = exports.addActService(params1, body2); console.log("Add act: ", act);
+    //let act = exports.addActService(params1, body1); console.log("Add act: ", act);
     //let act_no = exports.addActService(params1, body1); console.log("Do not add existing act: ", act_no);
     //let findAct = exports.getActByIdService(params1, {}); console.log("Find added act", findAct);
     //let updateAct = exports.updateActService(params1, body2); console.log("Update act: ", updateAct);
