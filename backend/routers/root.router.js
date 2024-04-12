@@ -2,7 +2,7 @@ const express = require('express');
 const userRouter = require('./user.router');
 const orgRouter = require('./org.router');
 const actRouter = require('./activities.router');
-const roommateRouter = require("./friends.router");
+const roommateRouter = require("./roommate.router");
 const friendsRouter = require("./friends.router");
 
 const RootRouter = express.Router();
