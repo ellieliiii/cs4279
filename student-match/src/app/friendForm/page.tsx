@@ -2,6 +2,7 @@
 import "./friendForm.css"; // Ensure this path matches your updated CSS file name
 import React, { useState } from "react";
 import styles from "@/app/page.module.css";
+import { useRouter } from "next/navigation";
 
 const FriendForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,8 @@ const FriendForm: React.FC = () => {
     academicStanding: [], // Multi-select for academic standing
     communicationPreference: [], // Multi-select for communication preferences
   });
+
+  const router = useRouter();
 
   const handleMultiSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, options } = e.target;
@@ -41,9 +44,30 @@ const FriendForm: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // use setFormData to update the state with the form data given
+
+    // Adds friend form to MongoDB
+    const url = "https://3-140-189-217.nip.io/api/friends";
+    const data = formData;
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const responseData = await response.json();
+      console.log(responseData); // Handle the response data accordingly
+    } catch (error) {
+      console.error("Error:", error);
+    }
+
+    router.push("/homePage");
   };
 
   // Hobbies options for the multi-select
@@ -109,7 +133,6 @@ const FriendForm: React.FC = () => {
   ];
 
   return (
-
     <body id="friend">
       <div className="friend_div">
         <h1 className="friend_title">Friend Preferences</h1>

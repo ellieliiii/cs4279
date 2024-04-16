@@ -1,11 +1,13 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "../../../node_modules/next/link";
 import pairFriends from "../utils/friendAlgorithm";
 
 function FriendHome() {
+  const [matchedFriends, setMatchedFriends] = useState<any[]>([]);
+
   // Temporary button for testing algorithm
-  const handleButtonClick = () => {
+  const handleButtonClick = async () => {
     const friends = [
       {
         fullName: "user1",
@@ -93,30 +95,79 @@ function FriendHome() {
         matches: null,
       },
     ];
-    pairFriends(friends);
-    console.log(friends[0].matches);
-    console.log(friends[1].matches);
-    console.log(friends[2].matches);
-    console.log(friends[3].matches);
-    console.log(friends[4].matches);
-    console.log(friends[5].matches);
+    // Commenting out tests with hard coded data for now
+    //pairFriends(friends);
+    //console.log(friends[0].matches);
+    //console.log(friends[1].matches);
+    //console.log(friends[2].matches);
+    //console.log(friends[3].matches);
+    //console.log(friends[4].matches);
+    //console.log(friends[5].matches);
+
+    // Gets all friend forms from MongoDB
+    const url = "https://3-140-189-217.nip.io/api/friends";
+
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const responseData = await response.json();
+      console.log(responseData); // Handle the response data accordingly
+
+      const matches = pairFriends(responseData);
+      const currentUser = global?.window?.localStorage?.getItem("user");
+
+      if (currentUser != null) {
+        const userEmail = JSON.parse(currentUser).email;
+        const userMatches = matches.get(userEmail);
+        console.log(userMatches);
+        setMatchedFriends(userMatches);
+      }
+      console.log(currentUser);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   // Direct navigation using standard anchor tag
   return (
     <div>
-      <h1>Find a Roommate</h1>
+      <h1>Find a Friend</h1>
       {/* Remove the "Fill Out Roommate Preference Form" link */}
-      {/* <Link href="/roommateForm">Fill Out Roommate Preference Form</Link> */}
+      {/* <Link href="/friendForm">Fill Out Roommate Preference Form</Link> */}
       <br></br>
       <br></br>
-      {/* Update the "Find Matches" button to navigate to the "/roommateForm" page */}
+      {/* Update the "Find Matches" button to navigate to the "/friendForm" page */}
       <button
         className="friend_button"
         onClick={() => (window.location.href = "/friendForm")}
       >
-        Find Friends
+        Fill Out Friend Form
       </button>
+
+      <button className="friend_button" onClick={handleButtonClick}>
+        Find Matches
+      </button>
+
+      {/* Display matched friends */}
+      <div>
+        <h2>Matched Friends:</h2>
+        {matchedFriends.length === 0 && <p>No matches found</p>}
+        {matchedFriends.length > 0 && (
+          <ul>
+            {matchedFriends.map((match, index) => (
+              <li key={index}>
+                <p>Name: {match.friend.fullName}</p>
+                <p>Email: {match.friend.email}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }

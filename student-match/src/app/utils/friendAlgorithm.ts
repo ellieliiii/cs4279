@@ -55,6 +55,7 @@ function multiSelectSimilarity(value1: String[], value2: String[]) {
 }
 
 export default function pairFriends(friends: Friend[]) {
+  let matches = new Map();
   for (let i = 0; i < friends.length; i++) {
     const friend1 = friends[i];
     const scores = [];
@@ -77,5 +78,9 @@ export default function pairFriends(friends: Friend[]) {
 
     // Add matches to user's data
     friend1.matches = topMatches;
+
+    matches.set(friend1.email, topMatches);
   }
+
+  return matches;
 }
