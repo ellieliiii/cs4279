@@ -150,7 +150,7 @@ function FriendHome() {
       </button>
 
       <button className="friend_button" onClick={handleButtonClick}>
-        Find Matches
+        Find Friends
       </button>
 
       {/* Display matched friends */}
