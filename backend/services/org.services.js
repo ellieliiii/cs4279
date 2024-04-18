@@ -5,7 +5,7 @@ const { randomUUID } = require('crypto');
  * Create a new org
  * @async
  * @param {Object} body - The body of the request that contains org information
- * @param {String} body.name - The title of the org
+ * @param {String} body.title - The title of the org
  * @param {String} body.description - The description of the org
  * @param {Array} body.tags - An array of tags that are associated with this org
  * @param {Array} body.membershipIds - An array of membershipIds to show users that are in this org
@@ -15,7 +15,7 @@ const { randomUUID } = require('crypto');
 exports.addOrgService = async (params, body) => {
     const orgId = randomUUID();
     try {
-        const org = await mdb.orgs.findOne({ name: body. name });
+        const org = await mdb.orgs.findOne({ title: body.title });
         if (org) {
             console.log("addUserService Error: Org already exists");
             return { status: "ERROR", data: "Org already exists" };
@@ -99,7 +99,6 @@ exports.updateOrgService = async (params, body) => {
     }
 
     let query = {
-        'orgId': params.orgId,
         ...body
     }
 
@@ -193,35 +192,3 @@ exports.removeMemberOrgService = async (params, body) => {
         return { status: "ERROR", data: result.data }
     }
 }
-
-/*********************************
- ************ TESTING ************
- *********************************/
- setTimeout(function() { // second set of tests to run (user, org, roommate, acts, friends)
-    console.log("I am org testing, I am running");
-    let body1 = {
-        'name': "Geico",
-        'email': "martin@geico.com",
-        'description': "15 minutes could save you 15% or more on car insurance",
-        'tags': ["cars", "insurance"],
-        'membershipId': [],
-        'orgId': "9801258058"
-    }
-    let params1 = {
-        'orgId': "9801258058"
-    }
-    let body2 = {
-        'name': "Math",
-        'email': "math@vanderbilt.edu",
-        'description': "1 + 1 = 3",
-        'tags': ["addition", "subtraction", "PEMDAS"],
-        'membershipId': []
-    }
-    //console.log(getAllOrgsService());
-    //let org = exports.addOrgService(params1, body1); console.log("Add org: ", org);
-    //let org_no = exports.addOrgService(params1, body1); console.log("Do not add existing org: ", org_no);
-    //let findOrg = exports.getOrgByIdService(params1, {}); console.log("Find added org", findOrg);
-    //let updateOrg = exports.updateOrgService(params1, body2); console.log("Update org: ", updateOrg);
-    //let deleteOrg = exports.deleteOrgService(params1, body2); console.log("Delete org: ", deleteOrg);
-
-  }, 5000);

@@ -96,7 +96,6 @@ exports.updateUserByIdService = async(params, body) => {
     }
 
     let query = {
-        'userId': params.userId,
         ...body
     }
     
@@ -133,29 +132,3 @@ exports.deleteUserByIdService = async(params, body) => {
         return { status: "ERROR", data: error };
     }
 }
-
-/*********************************
- ************ TESTING ************
- *********************************/
-setTimeout(function() { // first set of tests to run (user, org, roommate, acts, friends)
-    console.log("I am user testing, I am running");
-    let body1 = {
-        'name': "Martin",
-        'email': "martin@geico.com",
-        'phoneNumber': "911",
-        'userId': "102930"
-    }
-    let params1 = {
-        'userId': "102930"
-    }
-    let body2 = {
-        'name': "NotaName",
-        'email': "not@notemail.com",
-        'phoneNumber': "0"
-    }
-    //let user = exports.addUserService(params1, body1); console.log("Add User: ", user);
-    //let user_no = exports.addUserService(params1, body1); console.log("Do not add existing user: ", user_no);
-    //let findUser = exports.getUserByIdService(params1, {}); console.log("Find added user", findUser);
-    //let updateUser = exports.updateUserByIdService(params1, body2); console.log("Update user: ", updateUser);
-    //let deleteUser = exports.deleteUserByIdService(params1, body2); console.log("Delete user: ", deleteUser);
-  }, 2500);

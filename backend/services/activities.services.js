@@ -99,7 +99,6 @@ exports.updateActService = async (params, body) => {
     }
 
     let query = {
-        'actId': params.actId,
         ...body
     }
 
