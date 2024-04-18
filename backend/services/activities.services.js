@@ -5,7 +5,7 @@ const { randomUUID } = require('crypto');
  * Create a new act
  * @async
  * @param {Object} body - The body of the request that contains act information
- * @param {String} body.name - The name of the act
+ * @param {String} body.title - The name of the act
  * @param {String} body.email - The email contact for the act
  * @param {String} body.date - The date of the act
  * @param {String} body.organizer - The organizer of the act
@@ -15,7 +15,7 @@ const { randomUUID } = require('crypto');
 exports.addActService = async (params, body) => {
     const actId = randomUUID();
     try {
-        const act = await mdb.acts.findOne({ name: body.name });
+        const act = await mdb.acts.findOne({ title: body.title });
         if (act) {
             console.log("addUserService Error: Act already exists");
             return { status: "ERROR", data: "Act already exists" };
@@ -190,32 +190,3 @@ exports.removeMemberActService = async (params, body) => {
         return { status: "ERROR", data: result.data }
     }
 }
-
-/*********************************
- ************ TESTING ************
- *********************************/
- setTimeout(function() { // fourth set of tests to run (user, org, roommate, acts, friends)
-    console.log("I am activity testing, I am running");
-    let body1 = {
-        'name': "Rites of Spring",
-        'email': "rongs@winter.com",
-        'date': "4/20/2024",
-        'organizer': "VPB"
-    }
-    let params1 = {
-        //'actId': "9c2fc85d-6316-4ba4-b77e-042630ad053a"
-    }
-    let body2 = {
-        'name': "Change++ Cures Cancer with C++",
-        'email': "kylie.m.burgess@vanderbilt.edu",
-        'date': "4/27/2024",
-        'organizer': "Change++"
-    }
-    //console.log(getAllActsService());
-    //let act = exports.addActService(params1, body1); console.log("Add act: ", act);
-    //let act_no = exports.addActService(params1, body1); console.log("Do not add existing act: ", act_no);
-    //let findAct = exports.getActByIdService(params1, {}); console.log("Find added act", findAct);
-    //let updateAct = exports.updateActService(params1, body2); console.log("Update act: ", updateAct);
-    //let deleteAct = exports.deleteActService(params1, body2); console.log("Delete act: ", deleteAct);
-
-  }, 10000);

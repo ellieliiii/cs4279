@@ -1,13 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./homePage.css";
 import ActivityList from './activityList';
 import ActivityForm from './activityForm/activityForm'
-import Activity from "@/app/homePage/types";
+import { Activity } from "@/app/homePage/types";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const ActivityHome: React.FC = () => {
     const [showActivityForm, setShowActivityForm] = useState(false);
     const [activities, setActivities] = useState<Activity[]>([]);
+
+    useEffect(() => {
+        async function fetchActivities() {
+            const url = "https://3-140-189-217.nip.io/api/act";
+            const response = await fetch(url, {
+                method: "GET",
+            });
+            if (response.status == 200) {
+                const data = await response.json();
+                const list: Activity[] = [];
+                for (let i = 0; i < data.length; ++i) {
+                    const actObject: Activity = {
+                        actId: data[i].actId,
+                        title: data[i].title,
+                        description: data[i].description,
+                        date: data[i].date,
+                        organizer: data[i].organizer,
+                        membershipIds: data[i].membershipIds
+                    };
+                    list.push(actObject);
+                }
+                setActivities(list);
+            }
+        }
+        fetchActivities(); 
+    }, []); 
 
     const handleActivitySubmit = (activity: Activity) => {
         setActivities((prevActivities) => [...prevActivities, activity]);

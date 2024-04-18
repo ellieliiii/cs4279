@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../homePage.css";
-import Activity from "../types";
+import { Activity } from "@/app/homePage/types";
 import { useNavigate } from "react-router-dom";
 
 interface ActivityFormProps {
@@ -27,13 +27,55 @@ const ActivityForm: React.FC<ActivityFormProps> = ({ onSubmit }) => {
     }));
   };
 
+  const createActRequest = async(data: Object) => {
+    const url = "https://3-140-189-217.nip.io/api/act";
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data), 
+    });
+    if (response.status == 201) {
+        const data = await response.json();
+        return data;
+    } else {
+        return [];
+    }
+}
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const newActivity: Activity = {
-      id: Date.now(),
-      ...formData,
+    let userId = 0;
+    const currentUser = global?.window?.localStorage?.getItem("user");
+    if (currentUser) {
+        userId = JSON.parse(currentUser).userId; 
+    }
+    const body = {
+        ...formData,
+        userId: userId,
+        membershipIds: []
     };
-    onSubmit(newActivity);
+    createActRequest(body)
+        .then((res) => {
+            if (res) {
+                console.log("Successfully created act");
+                const orgData: Activity = {
+                    actId: res.actId,
+                    title: res.title,
+                    description: res.description,
+                    date: res.date,
+                    organizer: res.organizer,
+                    membershipIds: res.membershipIds
+                }; 
+                onSubmit(orgData);
+            } else {
+                console.log("Error creating act");
+            }
+        })
+        .catch((error) => {
+            console.error("Error creating act:", error);
+        });
     setFormData({
       title: "",
       description: "",

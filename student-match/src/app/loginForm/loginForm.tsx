@@ -26,9 +26,6 @@ const LoginForm: React.FC = () => {
     const url = "https://3-140-189-217.nip.io/api/user/id/";
     const response = await fetch(url + userId, {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
     });
     if (response.status == 200) {
       const data = await response.json();

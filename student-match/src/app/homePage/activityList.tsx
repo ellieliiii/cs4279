@@ -1,6 +1,6 @@
 import React from 'react';
 import "./homePage.css";
-import Activity from './types';
+import { Activity } from './types';
 
 interface ActivityListProps {
     activities: Activity[];
@@ -12,7 +12,7 @@ const ActivityList: React.FC<ActivityListProps> = ({ activities }) => {
             <h2>Activity List</h2>
             <ul>
                 {activities.map((activity) => (
-                    <li className='activity_list' key={activity.id}>
+                    <li className='activity_list' key={activity.actId}>
                         <button className='activity_listing'>
                             <strong className='activity_title'>{activity.title}</strong>
                             <p className='activity_desc'>{activity.description}</p>

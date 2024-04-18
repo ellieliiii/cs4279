@@ -3,14 +3,13 @@ import "./homePage.css";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import OrgHome from './orgHome';
 import OrgForm from './orgForm/orgForm';
-import Activity from "@/app/homePage/types";
+import { Org } from "@/app/homePage/types";
 
 const App: React.FC = () => {
-    const [orgs, setOrgs] = useState<Activity[]>([]);
+    const [orgs, setOrgs] = useState<Org[]>([]);
 
-    const handleOrgSubmit = (org: Activity) => {
+    const handleOrgSubmit = (org: Org) => {
         setOrgs((prevOrgs) => [...prevOrgs, org]);
-        console.log('Activity submitted:', org);
     };
 
     return (

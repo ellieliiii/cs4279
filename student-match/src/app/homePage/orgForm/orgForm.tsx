@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import "../homePage.css";
-import Activity from "../types";
+import { Org } from "@/app/homePage/types";
 import { useNavigate } from "react-router-dom";
 
 interface OrgFormProps {
-    onSubmit: (org: Activity) => void;
+    onSubmit: (org: Org) => void;
 }
 
-const OrgForm: React.FC<OrgFormProps> = ({ onSubmit }) => {
+const OrgForm: React.FC<OrgFormProps>  = ({ onSubmit }) => {
     const navigate = useNavigate();
-    const [orgs, setOrgs] = useState<Activity[]>([]);
     const [formData, setFormData] = useState({
         title: "",
         description: "",
-        date: "",
         organizer: "",
     });
 
@@ -27,17 +25,57 @@ const OrgForm: React.FC<OrgFormProps> = ({ onSubmit }) => {
         }));
     };
 
+    const createOrgRequest = async(data: Object) => {
+        const url = "https://3-140-189-217.nip.io/api/org";
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data), 
+        });
+        if (response.status == 201) {
+            const data = await response.json();
+            return data;
+        } else {
+            return [];
+        }
+    }
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        const newOrg: Activity = {
-            id: Date.now(),
+        let userId = 0;
+        const currentUser = global?.window?.localStorage?.getItem("user");
+        if (currentUser) {
+            userId = JSON.parse(currentUser).userId; 
+        }
+        const body = {
             ...formData,
+            userId: userId,
+            membershipIds: []
         };
-        onSubmit(newOrg);
+        createOrgRequest(body)
+            .then((res) => {
+                if (res) {
+                    console.log("Successfully created org");
+                    const orgData: Org = {
+                        orgId: res.orgId,
+                        title: res.title,
+                        description: res.description,
+                        creator: res.creator,
+                        membershipIds: res.membershipIds
+                    }; 
+                    onSubmit(orgData);
+                } else {
+                    console.log("Error creating org");
+                }
+            })
+            .catch((error) => {
+                console.error("Error creating org:", error);
+            });
         setFormData({
             title: "",
             description: "",
-            date: "",
             organizer: "",
         });
         navigate("/homePage");

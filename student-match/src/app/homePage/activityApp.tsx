@@ -3,7 +3,7 @@ import "./homePage.css";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ActivityHome from './activityHome';
 import ActivityForm from './activityForm/activityForm';
-import Activity from "@/app/homePage/types";
+import { Activity } from "@/app/homePage/types";
 
 const App: React.FC = () => {
     const [activities, setActivities] = useState<Activity[]>([]);
